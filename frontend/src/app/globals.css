@@ -3,9 +3,21 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Enhanced brand colors with better contrast */
   --eastto-orange: #ff6b35;
+  --eastto-orange-dark: #e55527; /* Better contrast for text */
+  --eastto-orange-light: #ff8c65; /* For hover states */
+  --eastto-orange-pale: #fff4f0; /* Background tint */
+  
   --eastto-red: #e63946;
+  --eastto-red-dark: #c12b36; /* Better contrast */
+  --eastto-red-light: #f05b66; /* For hover states */
+  
   --eastto-dark: #2d3748;
+  --eastto-gray: #4a5568;
+  --eastto-gray-light: #718096;
+  --eastto-gray-pale: #f7fafc;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,17 +33,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Custom Eastto brand colors */
+/* Enhanced Eastto brand colors with accessibility improvements */
 .text-eastto-orange {
-  color: var(--eastto-orange);
+  color: var(--eastto-orange-dark); /* Better contrast for text */
+}
+
+.text-eastto-orange-bright {
+  color: var(--eastto-orange); /* Original bright orange for accents */
 }
 
 .bg-eastto-orange {
   background-color: var(--eastto-orange);
 }
 
+.bg-eastto-orange-pale {
+  background-color: var(--eastto-orange-pale);
+}
+
 .text-eastto-red {
-  color: var(--eastto-red);
+  color: var(--eastto-red-dark); /* Better contrast */
 }
 
 .bg-eastto-red {
@@ -40,4 +60,38 @@ body {
 
 .border-eastto-orange {
   border-color: var(--eastto-orange);
+}
+
+.hover\:text-eastto-orange:hover {
+  color: var(--eastto-orange-dark);
+}
+
+.hover\:bg-eastto-orange:hover {
+  background-color: var(--eastto-orange-light);
+}
+
+.hover\:bg-eastto-red:hover {
+  background-color: var(--eastto-red-dark);
+}
+
+/* Enhanced focus states for accessibility */
+.focus\:ring-eastto-orange:focus {
+  --tw-ring-color: var(--eastto-orange);
+  --tw-ring-opacity: 0.5;
+}
+
+.focus\:ring-2:focus {
+  --tw-ring-offset-width: 2px;
+  --tw-ring-width: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .text-eastto-orange {
+    color: var(--eastto-red-dark);
+  }
+  
+  .bg-eastto-orange {
+    background-color: var(--eastto-red);
+  }
 }
