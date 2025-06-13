@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -11,6 +11,8 @@ export default function Navbar() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileDropdowns, setMobileDropdowns] = useState({});
+  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
+  const navRef = useRef(null);
   const pathname = usePathname();
 
   // Handle scroll effect
@@ -28,6 +30,49 @@ export default function Navbar() {
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
+  // Update underline position based on active navigation item
+  useEffect(() => {
+    if (!navRef.current) return;
+
+    const updateUnderlinePosition = () => {
+      const navContainer = navRef.current;
+      const navItems = navContainer.querySelectorAll('[data-nav-item]');
+      
+      let activeElement = null;
+      
+      // Find active navigation item
+      navItems.forEach((item, index) => {
+        const href = item.getAttribute('data-href');
+        const isDropdown = item.getAttribute('data-is-dropdown') === 'true';
+        
+        if (isDropdown) {
+          const dropdownLabel = item.getAttribute('data-dropdown-label');
+          if (pathname.startsWith(`/${dropdownLabel?.toLowerCase()}`)) {
+            activeElement = item;
+          }
+        } else if (href === pathname) {
+          activeElement = item;
+        }
+      });
+      
+      if (activeElement) {
+        const containerRect = navContainer.getBoundingClientRect();
+        const activeRect = activeElement.getBoundingClientRect();
+        
+        setUnderlineStyle({
+          left: activeRect.left - containerRect.left,
+          width: activeRect.width
+        });
+      }
+    };
+
+    updateUnderlinePosition();
+    
+    // Update on window resize
+    window.addEventListener('resize', updateUnderlinePosition);
+    return () => window.removeEventListener('resize', updateUnderlinePosition);
+  }, [pathname]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -93,9 +138,9 @@ export default function Navbar() {
                 <div className="text-xs text-eastto-orange font-semibold">Since 1964</div>
               </div>
             </Link>
-            </div>            {/* Desktop Navigation - Simplified */}
+            </div>            {/* Desktop Navigation - Updated with sliding underline */}
             <div className="hidden lg:block">
-              <div className="flex items-center space-x-2">
+              <div ref={navRef} className="flex items-center space-x-2 relative">
                 {navItems.map((item, index) => (
                   <div key={item.href || item.label} className="relative">
                     {item.dropdown ? (
@@ -105,8 +150,11 @@ export default function Navbar() {
                         onMouseEnter={() => setOpenDropdown(item.label)}
                         onMouseLeave={() => setOpenDropdown(null)}
                       >                        <button
-                        className={`px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md flex items-center space-x-1 focus:outline-none focus:ring-2 focus:ring-eastto-orange focus:ring-opacity-50 ${pathname.startsWith(`/${item.label.toLowerCase()}`)
-                          ? 'text-eastto-orange bg-eastto-orange-pale'
+                        data-nav-item
+                        data-is-dropdown="true"
+                        data-dropdown-label={item.label}
+                        className={`px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md flex items-center space-x-1 focus:outline-none relative ${pathname.startsWith(`/${item.label.toLowerCase()}`)
+                          ? 'text-eastto-orange'
                           : 'text-gray-700 hover:text-eastto-orange hover:bg-gray-50'
                           }`}
                         aria-expanded={openDropdown === item.label}
@@ -136,8 +184,10 @@ export default function Navbar() {
                       <Link
                         href={item.href}
                         target={item.target}
-                        className={`px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md relative focus:outline-none focus:ring-2 focus:ring-eastto-orange focus:ring-opacity-50 ${isActive(item.href)
-                          ? 'text-eastto-orange bg-eastto-orange-pale'
+                        data-nav-item
+                        data-href={item.href}
+                        className={`px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md relative focus:outline-none ${isActive(item.href)
+                          ? 'text-eastto-orange'
                           : 'text-gray-700 hover:text-eastto-orange hover:bg-gray-50'
                           }`}
                       >
@@ -147,14 +197,20 @@ export default function Navbar() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                           </svg>
                         )}
-                        {/* Active indicator */}
-                        {isActive(item.href) && (
-                          <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-eastto-orange rounded-full"></span>
-                        )}
                       </Link>
                     )}
                   </div>
                 ))}
+                
+                {/* Sliding underline indicator */}
+                <div 
+                  className="absolute bottom-0 h-0.5 bg-eastto-orange rounded-full transition-all duration-300 ease-out"
+                  style={{
+                    left: `${underlineStyle.left}px`,
+                    width: `${underlineStyle.width}px`,
+                    opacity: underlineStyle.width > 0 ? 1 : 0
+                  }}
+                />
               </div>
             </div>            {/* Right side - Simplified Contact & CTA */}
             <div className="hidden lg:flex items-center space-x-4">
@@ -165,7 +221,7 @@ export default function Navbar() {
                 </svg>
                 <span className="font-medium">Call Now</span>
               </a>              {/* Primary CTA with enhanced focus */}
-              <Link href="/contact" className="bg-eastto-orange text-white px-6 py-2 rounded-lg font-medium text-sm hover:bg-eastto-red transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-eastto-orange focus:ring-opacity-50 focus:ring-offset-2">
+              <Link href="/contact" className="bg-eastto-orange text-white px-6 py-2 rounded-lg font-medium text-sm hover:bg-eastto-red transition-colors duration-200 focus:outline-none">
                 Get Quote
               </Link>
             </div>            {/* Mobile menu button */}
@@ -187,7 +243,7 @@ export default function Navbar() {
               </button>
             </div>
           </div>
-        </div>        {/* Simplified Mobile menu */}
+        </div>        {/* Mobile menu - Updated with underline effect */}
         <div className={`lg:hidden transition-all duration-300 ${isOpen ? 'block' : 'hidden'
           }`}>
           <div className="px-4 pt-2 pb-4 space-y-1 bg-white border-t border-gray-200">
@@ -207,8 +263,8 @@ export default function Navbar() {
                   // Mobile dropdown item
                   <div>                    <button
                     onClick={() => toggleMobileDropdown(item.label)}
-                    className={`flex items-center justify-between w-full py-3 px-3 text-base font-medium rounded-lg transition-colors duration-200 ${pathname.startsWith(`/${item.label.toLowerCase()}`)
-                      ? 'text-eastto-orange bg-eastto-orange-pale'
+                    className={`flex items-center justify-between w-full py-3 px-3 text-base font-medium rounded-lg transition-colors duration-200 relative ${pathname.startsWith(`/${item.label.toLowerCase()}`)
+                      ? 'text-eastto-orange'
                       : 'text-gray-700 hover:text-eastto-orange hover:bg-gray-50'
                       }`}
                   >
@@ -222,6 +278,8 @@ export default function Navbar() {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
+                    {/* Mobile underline for active dropdown */}
+                    <span className={`absolute bottom-1 left-3 right-3 h-0.5 bg-eastto-orange rounded-full transition-all duration-300 ${pathname.startsWith(`/${item.label.toLowerCase()}`) ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}></span>
                   </button>
 
                     {/* Mobile dropdown content */}
@@ -239,12 +297,12 @@ export default function Navbar() {
                         ))}
                       </div>
                     )}
-                  </div>) : (                  // Mobile regular link
+                  </div>) : (                  // Mobile regular link - Updated with underline effect
                   <Link
                     href={item.href}
                     target={item.target}
-                    className={`block py-3 px-3 text-base font-medium rounded-lg transition-colors duration-200 ${isActive(item.href)
-                      ? 'text-eastto-orange bg-eastto-orange-pale'
+                    className={`block py-3 px-3 text-base font-medium rounded-lg transition-colors duration-200 relative ${isActive(item.href)
+                      ? 'text-eastto-orange'
                       : 'text-gray-700 hover:text-eastto-orange hover:bg-gray-50'
                       }`}
                     onClick={() => setIsOpen(false)}
@@ -257,6 +315,8 @@ export default function Navbar() {
                         </svg>
                       )}
                     </span>
+                    {/* Mobile active underline indicator */}
+                    <span className={`absolute bottom-1 left-3 right-3 h-0.5 bg-eastto-orange rounded-full transition-all duration-300 ${isActive(item.href) ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}></span>
                   </Link>
                 )}
               </div>
@@ -264,7 +324,7 @@ export default function Navbar() {
             <div className="pt-4 border-t border-gray-100">
               <Link
                 href="/contact"
-                className="block w-full bg-eastto-orange text-white text-center py-3 rounded-lg font-medium hover:bg-eastto-red transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-eastto-orange focus:ring-opacity-50"
+                className="block w-full bg-eastto-orange text-white text-center py-3 rounded-lg font-medium hover:bg-eastto-red transition-colors duration-200 focus:outline-none"
                 onClick={() => setIsOpen(false)}
               >
                 Get Quote
