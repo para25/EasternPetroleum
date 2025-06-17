@@ -429,10 +429,8 @@ export default function AboutUs() {
                       <h3 className="text-xl font-bold text-gray-900 mb-3">{milestone.title}</h3>
                       <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
                     </div>
-                  </div>
-
-                  {/* Timeline dot */}
-                  <div className="hidden lg:flex w-2/12 justify-center">
+                  </div>                  {/* Timeline dot */}
+                  <div className="hidden lg:flex w-2/12 justify-center relative z-10">
                     <div className="w-4 h-4 bg-orange-600 rounded-full border-4 border-white shadow-lg"></div>
                   </div>
 

@@ -214,13 +214,30 @@ export default function Navbar() {
               </div>
             </div>            {/* Right side - Simplified Contact & CTA */}
             <div className="hidden lg:flex items-center space-x-4">
-              {/* Contact Info */}
-              <a href="tel:+91-22-2529-9990" className="flex items-center space-x-2 text-sm text-gray-600 hover:text-eastto-orange transition-colors duration-200">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
-                <span className="font-medium">Call Now</span>
-              </a>              {/* Primary CTA with enhanced focus */}
+              {/* Contact Info - Updated with dropdown for multiple numbers */}
+              <div className="relative group">
+                <button className="flex items-center space-x-2 text-sm text-gray-600 hover:text-eastto-orange transition-colors duration-200">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                  </svg>
+                  <span className="font-medium">Call Now</span>
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                {/* Phone numbers dropdown */}
+                <div className="absolute top-full right-0 mt-1 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <a href="tel:022-2529-9990" className="block px-4 py-2 text-sm text-gray-700 hover:text-eastto-orange hover:bg-gray-50 transition-colors duration-150">
+                    <div className="font-medium">Office</div>
+                    <div className="text-xs text-gray-500">022 – 2529 9990 / 91 / 92 / 93</div>
+                  </a>
+                  <a href="tel:022-2742-1694" className="block px-4 py-2 text-sm text-gray-700 hover:text-eastto-orange hover:bg-gray-50 transition-colors duration-150">
+                    <div className="font-medium">Factory</div>
+                    <div className="text-xs text-gray-500">022 – 2742 1694 / 2742 3819</div>
+                  </a>
+                </div>
+              </div>{/* Primary CTA with enhanced focus */}
               <Link href="/contact" className="bg-eastto-orange text-white px-6 py-2 rounded-lg font-medium text-sm hover:bg-eastto-red transition-colors duration-200 focus:outline-none">
                 Get Quote
               </Link>
@@ -246,14 +263,20 @@ export default function Navbar() {
         </div>        {/* Mobile menu - Updated with underline effect */}
         <div className={`lg:hidden transition-all duration-300 ${isOpen ? 'block' : 'hidden'
           }`}>
-          <div className="px-4 pt-2 pb-4 space-y-1 bg-white border-t border-gray-200">
-
-            {/* Mobile Contact Info */}
-            <div className="flex items-center justify-between py-3 border-b border-gray-100 mb-2">
-              <span className="text-xs text-gray-600">Need help?</span>
-              <a href="tel:+91-22-2529-9990" className="text-sm font-medium text-eastto-orange">
-                +91-22-2529-9990
-              </a>
+          <div className="px-4 pt-2 pb-4 space-y-1 bg-white border-t border-gray-200">            {/* Mobile Contact Info - Updated with both numbers */}
+            <div className="py-3 border-b border-gray-100 mb-2">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs text-gray-600">Need help?</span>
+                <span className="text-xs text-eastto-orange font-medium">Call Now</span>
+              </div>
+              <div className="space-y-1">
+                <a href="tel:022-2529-9990" className="block text-sm font-medium text-gray-700 hover:text-eastto-orange">
+                  <span className="text-xs text-gray-500">Office:</span> 022 – 2529 9990 / 91 / 92 / 93
+                </a>
+                <a href="tel:022-2742-1694" className="block text-sm font-medium text-gray-700 hover:text-eastto-orange">
+                  <span className="text-xs text-gray-500">Factory:</span> 022 – 2742 1694 / 2742 3819
+                </a>
+              </div>
             </div>
 
             {/* Mobile Navigation Items */}

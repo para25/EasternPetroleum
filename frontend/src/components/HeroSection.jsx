@@ -17,7 +17,7 @@ const HeroSlideshow = () => {
       subtitle: 'Premium Automotive Lubricants',
       description: 'Advanced engine oils and lubricants for superior vehicle performance and protection.',
       cta: 'Explore Automotive Solutions',
-    //   overlay: 'bg-gradient-to-r from-black/70 to-transparent'
+ 
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ const HeroSlideshow = () => {
       subtitle: 'Protect Your Family',
       description: 'Effective mosquito control solutions to safeguard your loved ones from vector-borne diseases.',
       cta: 'Learn More',
-    //   overlay: 'bg-gradient-to-r from-blue-900/70 to-transparent'
+
     },
     {
       id: 3,
@@ -35,7 +35,7 @@ const HeroSlideshow = () => {
       subtitle: 'Construction Excellence',
       description: 'High-performance lubrication for formwork ensuring smooth concrete finishing.',
       cta: 'Construction Solutions',
-    //   overlay: 'bg-gradient-to-r from-gray-900/70 to-transparent'
+
     },
     {
       id: 4,
@@ -44,7 +44,7 @@ const HeroSlideshow = () => {
       subtitle: 'Personal Care Solutions',
       description: 'Pure, safe, and effective petroleum-based products for skin and hair care.',
       cta: 'Personal Care Range',
-    //   overlay: 'bg-gradient-to-r from-amber-900/70 to-transparent'  
+
     },
     {
       id: 5,
@@ -53,11 +53,11 @@ const HeroSlideshow = () => {
       subtitle: 'Industrial Textile Solutions',
       description: 'Specialized high-quality machine oils for optimal textile manufacturing performance.',
       cta: 'Industrial Solutions',
-    //   overlay: 'bg-gradient-to-r from-blue-900/70 to-transparent'
+
     }
   ];
 
-  // Auto-advance slideshow
+
   useEffect(() => {
     if (!isPlaying) return;
     
@@ -68,7 +68,7 @@ const HeroSlideshow = () => {
     return () => clearInterval(timer);
   }, [isPlaying, slides.length]);
 
-  // Preload images
+
   useEffect(() => {
     const imagePromises = slides.map((slide) => {
       return new Promise((resolve, reject) => {
@@ -143,9 +143,8 @@ const HeroSlideshow = () => {
   }
 
   return (
-    <>
-      <section 
-        className="relative w-full h-172 overflow-hidden"
+    <>      <section 
+        className="relative w-full h-64 sm:h-80 md:h-74 lg:h-[32rem] xl:h-[36rem] 2xl:h-[43rem] overflow-hidden"
         role="region"
         aria-label="Product showcase slideshow"
       >
@@ -161,42 +160,19 @@ const HeroSlideshow = () => {
               }`}
               aria-hidden={index !== currentSlide}
             >
-              {/* Background Image using Next.js Image component */}
-              <Image
+              {/* Background Image using Next.js Image component */}              <Image
                 src={slide.image}
                 alt={slide.title}
-                // width={1920}
-                // height={1080}
                 fill
-                className="object-cover"
+                className="object-contain sm:object-cover object-center"
                 priority={index === 0}
                 quality={90}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
               />
               
               {/* Overlay */}
               <div className={`absolute inset-0 ${slide.overlay}`} />
-              
-              {/* Content */}
-              {/* <div className="relative z-10 h-full flex items-center"> */}
-                 {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"> */}
-                  {/* <div className="max-w-3xl"> */}
-                    {/* <div className="slide-content"> */}
-                      {/* <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
-                        {slide.title}
-                      </h2>
-                      <h3 className="text-xl md:text-2xl text-orange-300 mb-6 font-semibold">
-                        {slide.subtitle}
-                      </h3>
-                      <p className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl">
-                        {slide.description}
-                      </p> */}
-                      {/* <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
-                        {slide.cta}
-                      </button> */}
-                    {/* </div> */}
-                  {/* </div> */}
-                {/* </div> */}
-              {/* </div> */}
+
             </div>
           ))}
         </div>
@@ -222,64 +198,13 @@ const HeroSlideshow = () => {
           </button>
         </div>
 
-        {/* Bottom Controls */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-6">
-          {/* Slide Indicators */}
-          <div className="flex items-center gap-3" role="tablist" aria-label="Slide navigation">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`relative w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/50 ${
-                  index === currentSlide
-                    ? 'bg-white scale-125'
-                    : 'bg-white/40 hover:bg-white/60'
-                }`}
-                role="tab"
-                aria-selected={index === currentSlide}
-                aria-label={`Go to slide ${index + 1}: ${slides[index].title}`}
-              />
-            ))}
-          </div>
 
-          {/* Play/Pause Button */}
-          <button
-            onClick={togglePlayPause}
-            className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/30"
-            aria-label={isPlaying ? 'Pause slideshow' : 'Play slideshow'}
-          >
-            {isPlaying ? (
-              <Pause className="w-4 h-4" />
-            ) : (
-              <Play className="w-4 h-4" />
-            )}
-          </button>
-
-          {/* Progress Bar */}
-          <div className="w-24 h-1 bg-white/20 rounded-full overflow-hidden backdrop-blur-sm">
-            <div
-              className="h-full bg-orange-400 rounded-full transition-all duration-300"
-              style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
-            />
-          </div>
-
-          {/* Slide Counter */}
-          <div className="bg-black/30 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
-            {String(currentSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
-          </div>
-        </div>
-
-        {/* Company Badge */}
-        {/* <div className="absolute top-8 left-8 bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-lg">
-          <div className="font-bold text-lg">Eastern Petroleum</div>
-          <div className="text-sm opacity-90">Premium Lubricants</div>
-        </div> */}
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-4 right-8 text-white/60 text-sm flex items-center gap-2">
+        {/* <div className="absolute bottom-4 right-8 text-white/60 text-sm flex items-center gap-2">
           <div className="w-px h-12 bg-white/30"></div>
           <span className="scroll-text">Scroll to explore</span>
-        </div>
+        </div> */}
       </section>
 
       <style jsx>{`

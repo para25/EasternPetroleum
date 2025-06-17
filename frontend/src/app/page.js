@@ -45,25 +45,11 @@ export default function Home() {
     return () => clearInterval(timer);
   }, [heroImages.length]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
-  };
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
   return (
     <div>
-      {/* Hero Section */}
-      <HeroSlideshow
-      />
-      {/* Hero Section with Overlay */}
 
-      {/* Stats Section */}
+      <HeroSlideshow />
+
       <section className="py-16 bg-orange-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">

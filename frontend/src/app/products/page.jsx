@@ -456,22 +456,20 @@ export default function Products() {
                 </svg>
               </div>
             </div>
-          </div>
-
-          {/* Product Categories Grid */}
+          </div>          {/* Product Categories Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredCategories.map((category, index) => (
-              <div
+              <Link
                 key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 p-6 cursor-pointer ${
+                href={`/products/${category.id}`}
+                className={`bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-6 group ${
                   activeCategory === category.id ? "ring-2 ring-orange-500" : ""
                 }`}
               >
-                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors duration-200">
                   {category.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{category.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-200">{category.title}</h3>
                 <p className="text-gray-600 mb-4 text-sm">{category.description}</p>
                 <ul className="space-y-2 text-sm text-gray-600">
                   {category.products.slice(0, 3).map((product, productIndex) => (
@@ -493,7 +491,13 @@ export default function Products() {
                     </li>
                   )}
                 </ul>
-              </div>
+                <div className="mt-4 flex items-center justify-between">
+                  <span className="text-orange-600 font-medium text-sm">View Products</span>
+                  <svg className="w-4 h-4 text-orange-600 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
