@@ -3,80 +3,13 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useParams } from "next/navigation"
-
-// Product data - simplified for essential information only
-const productData = {
-  automotive: {
-    "engine-oil": {
-      name: "Motor Engine Oil (SAE 30, 40, 50)",
-      brand: "EASTTO",
-      shortDescription: "High-performance motor engine oils for various applications",
-      heroImage: "/engine-oil-hero.jpg",
-      introduction: "Motor Engine Oils in grades SAE 30, SAE 40, and SAE 50 are expertly blended from highly refined base stocks with a high viscosity index. They incorporate a balanced additive package providing detergent, dispersant, antioxidant, and anti-wear properties. These oils are designed to ensure reliable lubrication, prevent deposit formation, control oxidation, and protect moving parts under a range of operating conditions.",
-      applications: [
-        {
-          title: "Four-Stroke Gasoline Engines (Older Designs)",
-          description: "Ideal for crankcase lubrication in vintage or less-demanding gasoline engines where these viscosity grades have proven suitability."
-        },
-        {
-          title: "Stationary Diesel Engines",
-          description: "Recommended for pumpset and genset applications, where consistent performance and longevity are critical."
-        },
-        {
-          title: "Older Automotive Diesel Engines (Commercial Fleets)",
-          description: "Particularly well-suited for legacy diesel engines in fleet operation, offering protection under heavy-duty cycles."
-        }
-      ],
-      specifications: {
-        apiService: "Meets API CC/SC standards, aligning with requirements for older diesel and gasoline engines.",
-        industryStandards: "Conforms to IS 13656:2002.",
-        oemRequirements: "Complies with EPL-1 / EDL-1 performance levels.",
-        viscosityGrades: "Available in SAE 30, SAE 40, and SAE 50 to suit varied engine designs and operating conditions."
-      },
-      packaging: ["210 L", "26 L", "20 L", "15 L", "10 L", "7.5 L", "5 L", "3.5 L", "1 L"],
-      technicalData: [
-        {
-          characteristic: "Kinematic Viscosity at 100°C., cSt",
-          sae30: "11.0",
-          sae40: "14.0",
-          sae50: "19.0"
-        },
-        {
-          characteristic: "Flash Point,°C (COC), Min.",
-          sae30: "220",
-          sae40: "220",
-          sae50: "220"
-        },
-        {
-          characteristic: "TBN, mg KOH / gm.",
-          sae30: "5.0",
-          sae40: "5.0",
-          sae50: "5.0"
-        },
-        {
-          characteristic: "Pour Point, °C Max.",
-          sae30: "(-) 6",
-          sae40: "(-) 6",
-          sae50: "(-) 6"
-        }
-      ]
-    }
-    // Add more products here...
-  }
-  // Add more categories here...
-}
-
-const categoryNames = {
-  automotive: "Automotive Oils",
-  industrial: "Industrial Oils",
-  // Add more categories...
-}
+import { detailedProductData, categoryNames } from "@/data/productCategories"
 
 export default function ProductDetailPage() {
   const params = useParams()
   const { category, product } = params
 
-  const productInfo = productData[category]?.[product]
+  const productInfo = detailedProductData[category]?.[product]
   const categoryName = categoryNames[category] || "Products"
 
   if (!productInfo) {
