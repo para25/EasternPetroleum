@@ -308,8 +308,7 @@ export const getDetailedProductCategories = () => {
 };
 
 // Detailed product information for individual product pages
-export const detailedProductData = {
-  automotive: {
+export const detailedProductData = {  automotive: {
     "engine-oil": {
       name: "Motor Engine Oil (SAE 30, 40, 50)",
       brand: "EASTTO",
@@ -362,7 +361,14 @@ export const detailedProductData = {
           sae40: "(-) 6",
           sae50: "(-) 6"
         }
-      ]
+      ],      pdfs: {
+        msds: "/pdfs/motor_oil/EASTTO MOTOR OILS  MSDS.pdf",
+        pds: "/pdfs/motor_oil/EASTTO MOTOR OIL PDS.pdf",
+        brochure: "/pdfs/motor_oil/EASTTO MOTOR OIL BROCHURE.pdf"
+      },      video: {
+        src: "/pdfs/motor_oil/9. Motor Engine Oil Video.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
     }
     // Additional products can be added here following the same structure
   }
@@ -370,7 +376,7 @@ export const detailedProductData = {
 };
 
 // Category display names for navigation
-export const categoryNames = {
+export const  categoryNames = {
   automotive: "Automotive Oils",
   industrial: "Industrial Oils",
   specialty: "Specialty Lubricants",

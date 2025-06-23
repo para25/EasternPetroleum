@@ -60,12 +60,12 @@ export default function ProductDetailPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <nav className="flex items-center space-x-2 text-sm">
-              <Link href="/" className="text-gray-500 hover:text-orange-600 transition-colors duration-200">
+              {/* <Link href="/" className="text-gray-500 hover:text-orange-600 transition-colors duration-200">
                 Home
               </Link>
               <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+              </svg> */}
               <Link href="/products" className="text-gray-500 hover:text-orange-600 transition-colors duration-200">
                 Products
               </Link>
@@ -161,13 +161,38 @@ export default function ProductDetailPage() {
                   <div className="font-semibold text-gray-900">{productInfo.packaging.length} Sizes</div>
                 </div>
               </div>
-            </div>
+            </div>            <div className="relative">              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+              {productInfo.video?.src ? (<video
+                controls
+                autoPlay
+                loop
+                playsInline
+                poster={productInfo.video.poster}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  // Hide video and show fallback image if video fails to load
+                  e.target.style.display = 'none';
+                  e.target.nextElementSibling.style.display = 'block';
+                }}
+              >
+                <source src={productInfo.video.src} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              ) : null}                  {/* Fallback image - always present as backup */}
+              <Image
+                src="/engine-oil-hero.jpg"
+                alt={productInfo.name}
+                fill
+                className="object-cover"
+                style={{ display: productInfo.video?.src ? 'none' : 'block' }}
+                priority
+              />
 
-            <div className="relative">
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-                <Image src="/engine-oil.jpg" alt={productInfo.name} fill className="object-cover" priority />
+              {/* Only show gradient overlay when displaying the image, not the video */}
+              {!productInfo.video?.src && (
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              </div>
+              )}
+            </div>
             </div>
           </div>
         </div>
@@ -295,70 +320,149 @@ export default function ProductDetailPage() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Download & Enquiry Section */}
+      </section>      {/* Download & Enquiry Section */}
       <section className="py-16 bg-gradient-to-r from-orange-50 to-orange-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl font-bold text-gray-900 mb-8">Product Resources</h2>
             <div className="grid md:grid-cols-4 gap-4">
-              <button className="bg-white hover:bg-orange-50 border-2 border-orange-200 hover:border-orange-400 text-gray-800 px-6 py-6 rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg group">
-                <div className="flex flex-col items-center">
-                  <svg
-                    className="w-8 h-8 text-orange-600 mb-3 group-hover:scale-110 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
-                  <span className="text-sm">Download MSDS</span>
-                </div>
-              </button>
+              {/* MSDS Download */}
+              {productInfo.pdfs?.msds ? (
+                <a
+                  href={productInfo.pdfs.msds}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white hover:bg-orange-50 border-2 border-orange-200 hover:border-orange-400 text-gray-800 px-6 py-6 rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg group"
+                >
+                  <div className="flex flex-col items-center">
+                    <svg
+                      className="w-8 h-8 text-orange-600 mb-3 group-hover:scale-110 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                    <span className="text-sm">Download MSDS</span>
+                  </div>
+                </a>
+              ) : (
+                <button className="bg-white hover:bg-orange-50 border-2 border-orange-200 hover:border-orange-400 text-gray-800 px-6 py-6 rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg group opacity-50 cursor-not-allowed">
+                  <div className="flex flex-col items-center">
+                    <svg
+                      className="w-8 h-8 text-orange-600 mb-3"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                    <span className="text-sm">Download MSDS</span>
+                  </div>
+                </button>
+              )}
 
-              <button className="bg-white hover:bg-orange-50 border-2 border-orange-200 hover:border-orange-400 text-gray-800 px-6 py-6 rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg group">
-                <div className="flex flex-col items-center">
-                  <svg
-                    className="w-8 h-8 text-orange-600 mb-3 group-hover:scale-110 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
-                  <span className="text-sm">Product Data Sheet</span>
-                </div>
-              </button>
+              {/* PDS Download */}
+              {productInfo.pdfs?.pds ? (
+                <a
+                  href={productInfo.pdfs.pds}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white hover:bg-orange-50 border-2 border-orange-200 hover:border-orange-400 text-gray-800 px-6 py-6 rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg group"
+                >
+                  <div className="flex flex-col items-center">
+                    <svg
+                      className="w-8 h-8 text-orange-600 mb-3 group-hover:scale-110 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                    <span className="text-sm">Product Data Sheet</span>
+                  </div>
+                </a>
+              ) : (
+                <button className="bg-white hover:bg-orange-50 border-2 border-orange-200 hover:border-orange-400 text-gray-800 px-6 py-6 rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg group opacity-50 cursor-not-allowed">
+                  <div className="flex flex-col items-center">
+                    <svg
+                      className="w-8 h-8 text-orange-600 mb-3"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                    <span className="text-sm">Product Data Sheet</span>
+                  </div>
+                </button>
+              )}
 
-              <button className="bg-white hover:bg-orange-50 border-2 border-orange-200 hover:border-orange-400 text-gray-800 px-6 py-6 rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg group">
-                <div className="flex flex-col items-center">
-                  <svg
-                    className="w-8 h-8 text-orange-600 mb-3 group-hover:scale-110 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-                    />
-                  </svg>
-                  <span className="text-sm">Download Brochure</span>
-                </div>
-              </button>
+              {/* Brochure Download */}
+              {productInfo.pdfs?.brochure ? (
+                <a
+                  href={productInfo.pdfs.brochure}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white hover:bg-orange-50 border-2 border-orange-200 hover:border-orange-400 text-gray-800 px-6 py-6 rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg group"
+                >
+                  <div className="flex flex-col items-center">
+                    <svg
+                      className="w-8 h-8 text-orange-600 mb-3 group-hover:scale-110 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                      />
+                    </svg>
+                    <span className="text-sm">Download Brochure</span>
+                  </div>
+                </a>
+              ) : (
+                <button className="bg-white hover:bg-orange-50 border-2 border-orange-200 hover:border-orange-400 text-gray-800 px-6 py-6 rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg group opacity-50 cursor-not-allowed">
+                  <div className="flex flex-col items-center">
+                    <svg
+                      className="w-8 h-8 text-orange-600 mb-3"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                      />
+                    </svg>
+                    <span className="text-sm">Download Brochure</span>
+                  </div>
+                </button>
+              )}
 
               <Link
                 href="/contact"
