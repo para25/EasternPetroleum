@@ -328,13 +328,34 @@ export const detailedProductData = {  automotive: {
           title: "Older Automotive Diesel Engines (Commercial Fleets)",
           description: "Particularly well-suited for legacy diesel engines in fleet operation, offering protection under heavy-duty cycles."
         }
-      ],
-      specifications: {
+      ],      specifications: {
         apiService: "Meets API CC/SC standards, aligning with requirements for older diesel and gasoline engines.",
         industryStandards: "Conforms to IS 13656:2002.",
         oemRequirements: "Complies with EPL-1 / EDL-1 performance levels.",
         viscosityGrades: "Available in SAE 30, SAE 40, and SAE 50 to suit varied engine designs and operating conditions."
       },
+      performanceStandards: [
+        {
+          icon: "API",
+          title: "API Standards",
+          value: "API CC/SC"
+        },
+        {
+          icon: "IS",
+          title: "Industry Standards", 
+          value: "IS 13656:2002"
+        },
+        {
+          icon: "EPL",
+          title: "Fleet Requirements",
+          value: "EPL-1 / EDL-1"
+        },
+        {
+          icon: "SAE",
+          title: "Viscosity Grades",
+          value: "30, 40, 50"
+        }
+      ],
       packaging: ["210 L", "26 L", "20 L", "15 L", "10 L", "7.5 L", "5 L", "3.5 L", "1 L"],
       technicalData: [
         {

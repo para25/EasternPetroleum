@@ -106,10 +106,9 @@ export default function ProductDetailPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div
               className={`transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
-            >
-              <div className="flex items-center mb-6">
+            >              <div className="flex items-center mb-6">
                 <div className="inline-flex items-center bg-orange-100 text-orange-800 px-4 py-2 rounded-lg text-sm font-medium mr-4">
-                  {productInfo.brand} Premium Series
+                  {productInfo.brand} {productInfo.series || "Premium Series"}
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -118,7 +117,11 @@ export default function ProductDetailPage() {
               </div>
 
               <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{productInfo.name}</h1>
-              <p className="text-xl text-orange-600 font-semibold mb-6">SAE 30, 40, 50</p>
+              {productInfo.specifications?.viscosityGrades && (
+                <p className="text-xl text-orange-600 font-semibold mb-6">
+                  {productInfo.specifications.viscosityGrades.replace("Available in ", "").replace(" to suit varied engine designs and operating conditions.", "")}
+                </p>
+              )}
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">{productInfo.shortDescription}</p>
 
               {/* Quick Actions */}
@@ -137,28 +140,20 @@ export default function ProductDetailPage() {
                   </svg>
                   Get Quote
                 </Link>
-                {/* <button className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:border-orange-600 hover:text-orange-600 transition-colors duration-200 flex items-center justify-center">
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
-                  Download Datasheet
-                </button> */}
-              </div>
 
-              {/* Key Features Preview */}
-              <div className="grid grid-cols-2 gap-4">
+              </div>              <div className="grid grid-cols-2 gap-4">
                 <div className="bg-gray-50 rounded-lg p-4">
                   <div className="text-sm text-gray-600 mb-1">API Standard</div>
-                  <div className="font-semibold text-gray-900">API CC/SC</div>
+                  <div className="font-semibold text-gray-900">
+                    {productInfo.specifications?.apiService?.includes("API") 
+                      ? productInfo.specifications.apiService.split("standards")[0].replace("Meets ", "").trim()
+                      : "Not Available"
+                    }
+                  </div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-4">
                   <div className="text-sm text-gray-600 mb-1">Packaging</div>
-                  <div className="font-semibold text-gray-900">{productInfo.packaging.length} Sizes</div>
+                  <div className="font-semibold text-gray-900">{productInfo.packaging?.length || 0} Sizes</div>
                 </div>
               </div>
             </div>            <div className="relative">              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
@@ -178,9 +173,9 @@ export default function ProductDetailPage() {
                 <source src={productInfo.video.src} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              ) : null}                  {/* Fallback image - always present as backup */}
+              ) : null}              {/* Fallback image - always present as backup */}
               <Image
-                src="/engine-oil-hero.jpg"
+                src={productInfo.heroImage || "/engine-oil-hero.jpg"}
                 alt={productInfo.name}
                 fill
                 className="object-cover"
@@ -206,14 +201,21 @@ export default function ProductDetailPage() {
             <div className="grid lg:grid-cols-2 gap-12">
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Product Overview</h2>
-                <p className="text-gray-700 leading-relaxed mb-6">{productInfo.introduction}</p>
-                <div className="bg-orange-50 rounded-lg p-4">
+                <p className="text-gray-700 leading-relaxed mb-6">{productInfo.introduction}</p>                <div className="bg-orange-50 rounded-lg p-4">
                   <h3 className="font-semibold text-orange-900 mb-2">Key Benefits</h3>
                   <ul className="text-sm text-orange-800 space-y-1">
-                    <li>• Superior engine protection</li>
-                    <li>• Extended oil life</li>
-                    <li>• Reduced maintenance costs</li>
-                    <li>• Improved fuel efficiency</li>
+                    {productInfo.benefits ? (
+                      productInfo.benefits.map((benefit, index) => (
+                        <li key={index}>• {benefit}</li>
+                      ))
+                    ) : (
+                      <>
+                        <li>• Superior engine protection</li>
+                        <li>• Extended oil life</li>
+                        <li>• Reduced maintenance costs</li>
+                        <li>• Improved fuel efficiency</li>
+                      </>
+                    )}
                   </ul>
                 </div>
               </div>
@@ -229,64 +231,94 @@ export default function ProductDetailPage() {
                   ))}
                 </div>
               </div>
-            </div>
-
-            {/* Performance Standards */}
+            </div>            {/* Performance Standards */}
             <div className="bg-white rounded-2xl p-8 shadow-lg">
               <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Performance Standards</h2>
-              <div className="grid md:grid-cols-4 gap-6">
-                <div className="text-center p-6 bg-gray-50 rounded-xl">
-                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-orange-600 font-bold text-lg">API</span>
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">API Standards</h3>
-                  <p className="text-orange-600 font-medium">API CC/SC</p>
-                </div>
-                <div className="text-center p-6 bg-gray-50 rounded-xl">
-                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-orange-600 font-bold text-lg">IS</span>
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Industry Standards</h3>
-                  <p className="text-orange-600 font-medium">IS 13656:2002</p>
-                </div>
-                <div className="text-center p-6 bg-gray-50 rounded-xl">
-                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-orange-600 font-bold text-lg">EPL</span>
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Fleet Requirements</h3>
-                  <p className="text-orange-600 font-medium">EPL-1 / EDL-1</p>
-                </div>
-                <div className="text-center p-6 bg-gray-50 rounded-xl">
-                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-orange-600 font-bold text-lg">SAE</span>
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Viscosity Grades</h3>
-                  <p className="text-orange-600 font-medium">30, 40, 50</p>
-                </div>
+              <div className={`grid gap-6 ${productInfo.performanceStandards ? `md:grid-cols-${Math.min(productInfo.performanceStandards.length, 4)}` : 'md:grid-cols-4'}`}>
+                {productInfo.performanceStandards ? (
+                  productInfo.performanceStandards.map((standard, index) => (
+                    <div key={index} className="text-center p-6 bg-gray-50 rounded-xl">
+                      <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-orange-600 font-bold text-lg">{standard.icon}</span>
+                      </div>
+                      <h3 className="font-semibold text-gray-900 mb-2">{standard.title}</h3>
+                      <p className="text-orange-600 font-medium">{standard.value}</p>
+                    </div>
+                  ))
+                ) : (
+                  // Fallback to original hardcoded standards
+                  <>
+                    <div className="text-center p-6 bg-gray-50 rounded-xl">
+                      <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-orange-600 font-bold text-lg">API</span>
+                      </div>
+                      <h3 className="font-semibold text-gray-900 mb-2">API Standards</h3>                      <p className="text-orange-600 font-medium">
+                        {productInfo.specifications?.apiService?.includes("API") 
+                          ? productInfo.specifications.apiService.split("standards")[0].replace("Meets ", "").trim()
+                          : "No Information Available"
+                        }
+                      </p>
+                    </div>
+                    <div className="text-center p-6 bg-gray-50 rounded-xl">
+                      <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-orange-600 font-bold text-lg">IS</span>
+                      </div>
+                      <h3 className="font-semibold text-gray-900 mb-2">Industry Standards</h3>                      <p className="text-orange-600 font-medium">
+                        {productInfo.specifications?.industryStandards?.replace("Conforms to ", "") || "No Information Available"}
+                      </p>
+                    </div>
+                    <div className="text-center p-6 bg-gray-50 rounded-xl">
+                      <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-orange-600 font-bold text-lg">EPL</span>
+                      </div>
+                      <h3 className="font-semibold text-gray-900 mb-2">Fleet Requirements</h3>                      <p className="text-orange-600 font-medium">
+                        {productInfo.specifications?.oemRequirements?.replace("Complies with ", "").replace(" performance levels.", "") || "No Information Available"}
+                      </p>
+                    </div>
+                    <div className="text-center p-6 bg-gray-50 rounded-xl">
+                      <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-orange-600 font-bold text-lg">SAE</span>
+                      </div>
+                      <h3 className="font-semibold text-gray-900 mb-2">Viscosity Grades</h3>                      <p className="text-orange-600 font-medium">
+                        {productInfo.specifications?.viscosityGrades?.replace("Available in ", "").replace(" to suit varied engine designs and operating conditions.", "") || "No Information Available"}
+                      </p>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
             {/* Technical Data and Packaging */}
-            <div className="grid lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-2 bg-white rounded-2xl p-8 shadow-lg">
+            <div className="grid lg:grid-cols-3 gap-8">              <div className="lg:col-span-2 bg-white rounded-2xl p-8 shadow-lg">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Technical Specifications</h2>
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead className="bg-gradient-to-r from-orange-50 to-orange-100">
                       <tr>
                         <th className="px-6 py-4 text-left font-semibold text-gray-700">Characteristics</th>
-                        <th className="px-6 py-4 text-center font-semibold text-gray-700">SAE 30</th>
-                        <th className="px-6 py-4 text-center font-semibold text-gray-700">SAE 40</th>
-                        <th className="px-6 py-4 text-center font-semibold text-gray-700">SAE 50</th>
+                        {productInfo.technicalData && productInfo.technicalData.length > 0 && (
+                          Object.keys(productInfo.technicalData[0])
+                            .filter(key => key !== 'characteristic')
+                            .map((header, index) => (
+                              <th key={index} className="px-6 py-4 text-center font-semibold text-gray-700">
+                                {header.toUpperCase()}
+                              </th>
+                            ))
+                        )}
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
-                      {productInfo.technicalData.map((row, index) => (
+                      {productInfo.technicalData?.map((row, index) => (
                         <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
                           <td className="px-6 py-4 font-medium text-gray-900">{row.characteristic}</td>
-                          <td className="px-6 py-4 text-center text-gray-700">{row.sae30}</td>
-                          <td className="px-6 py-4 text-center text-gray-700">{row.sae40}</td>
-                          <td className="px-6 py-4 text-center text-gray-700">{row.sae50}</td>
+                          {Object.keys(row)
+                            .filter(key => key !== 'characteristic')
+                            .map((key, colIndex) => (
+                              <td key={colIndex} className="px-6 py-4 text-center text-gray-700">
+                                {row[key]}
+                              </td>
+                            ))
+                          }
                         </tr>
                       ))}
                     </tbody>
