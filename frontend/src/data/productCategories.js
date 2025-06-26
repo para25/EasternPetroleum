@@ -61,7 +61,7 @@ export const convertToDetailedProducts = (products) => {
         .toLowerCase()
         .replace(/[^\w\s]/g, '')  // Remove special characters
         .replace(/\s+/g, '-');     // Replace spaces with hyphens
-      
+
       return {
         id,
         name: product,
@@ -100,7 +100,7 @@ const productCategories = [
       "GEM 15W/-40",
       "Brake Fluid",
     ],
-  },  {
+  }, {
     id: "industrial",
     title: "Industrial Oils",
     description: "High-performance lubricants for industrial machinery and equipment",
@@ -129,7 +129,7 @@ const productCategories = [
       "Compounded Fluids",
       "Axle Oils",
     ],
-  },  {
+  }, {
     id: "specialty",
     title: "Industrial Specialty Oils",
     description: "Specialized lubricants for unique industrial applications",
@@ -153,14 +153,14 @@ const productCategories = [
       "Demoulding Oil",
       "Mould Releasing Agent",
     ],
-  },  {
+  }, {
     id: "marine",
     title: "Marine Oils",
     description: "Marine-grade lubricants for maritime applications",
     iconPaths: svgIcons.marine,
     image: "/images/branded-storage-tanks.jpg",
     products: ["Marine Engine Oil", "Marine Turbine Oil", "Marine Hydraulic Oil"],
-  },  {
+  }, {
     id: "textile",
     title: "Textile Oils",
     description: "Specialized lubricants for textile machinery and processes",
@@ -174,7 +174,7 @@ const productCategories = [
       "Spintex Oils",
       "Conmol Oil",
     ],
-  },  {
+  }, {
     id: "waxes",
     title: "Specialty Oils & Waxes",
     description: "Premium waxes and specialty oils for various applications",
@@ -190,7 +190,7 @@ const productCategories = [
       "Bees Wax",
       "Carnauba Wax",
     ],
-  },  {
+  }, {
     id: "grease",
     title: "Grease",
     description: "High-quality greases for various lubrication needs",
@@ -204,7 +204,7 @@ const productCategories = [
       "Eastto Lithox Grease (NLGI 2&3)",
       "Eastto High Temp Grease",
     ],
-  },  {
+  }, {
     id: "metalworking",
     title: "Metal Working Fluids",
     description: "Cutting fluids and metalworking lubricants",
@@ -218,7 +218,7 @@ const productCategories = [
       "Metalhone TX",
       "Gun Drilling Oil",
     ],
-  },  {
+  }, {
     id: "solvents",
     title: "Solvents",
     description: "Industrial solvents and aromatic compounds",
@@ -231,7 +231,7 @@ const productCategories = [
       "Paraffin Rich Low Aromatic Solvent",
       "Eastonol-A (Paraffin Rich Low Aromatic Solvent)",
     ],
-  },  {
+  }, {
     id: "baseoils",
     title: "Base Oils",
     description: "High-quality base oils for lubricant formulation",
@@ -243,14 +243,14 @@ const productCategories = [
       "Base Oils : LX-30, LX-100",
       "Low Visc PX- 3",
     ],
-  },  {
+  }, {
     id: "additives",
     title: "Fuel Additives",
     description: "Performance additives for fuel enhancement",
     iconPaths: svgIcons.additives,
     image: "/images/manufacturing-facility.jpg",
     products: ["Fuel Performance Additives", "Engine Treatment Additives", "Fuel System Cleaners"],
-  },  {
+  }, {
     id: "sulphonates",
     title: "Sulphonates",
     description: "Petroleum sulphonates for various applications",
@@ -262,7 +262,7 @@ const productCategories = [
       "Barium Petroleum Sulphonate (Eastto PET 800)",
       "Magnesium Petroleum Sulphonate (Eastto PET 1400)",
     ],
-  },  {
+  }, {
     id: "defence",
     title: "Defence Lubricants",
     description: "Military-grade lubricants for defense applications",
@@ -280,14 +280,14 @@ const productCategories = [
       "Defence Greases",
       "Defence Engine Oil",
     ],
-  },  {
+  }, {
     id: "emulsifiers",
     title: "Emulsifiers",
     description: "Industrial emulsifiers and cutting compounds",
     iconPaths: svgIcons.emulsifiers,
     image: "/images/production-equipment.jpg",
     products: ["Eastto Conkut EX & CX"],
-  },  {
+  }, {
     id: "larvicidal",
     title: "Mosquito Larvicidal Oil",
     description: "Specialized oil for mosquito control applications",
@@ -308,13 +308,23 @@ export const getDetailedProductCategories = () => {
 };
 
 // Detailed product information for individual product pages
-export const detailedProductData = {  automotive: {
+export const detailedProductData = {
+  automotive: {
     "engine-oil": {
       name: "Motor Engine Oil (SAE 30, 40, 50)",
       brand: "EASTTO",
       shortDescription: "High-performance motor engine oils for various applications",
       heroImage: "/engine-oil-hero.jpg",
+      fallbackImage: "/products/automotive.jpg", // Category-specific fallback
       introduction: "Motor Engine Oils in grades SAE 30, SAE 40, and SAE 50 are expertly blended from highly refined base stocks with a high viscosity index. They incorporate a balanced additive package providing detergent, dispersant, antioxidant, and anti-wear properties. These oils are designed to ensure reliable lubrication, prevent deposit formation, control oxidation, and protect moving parts under a range of operating conditions.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
       applications: [
         {
           title: "Four-Stroke Gasoline Engines (Older Designs)",
@@ -328,7 +338,7 @@ export const detailedProductData = {  automotive: {
           title: "Older Automotive Diesel Engines (Commercial Fleets)",
           description: "Particularly well-suited for legacy diesel engines in fleet operation, offering protection under heavy-duty cycles."
         }
-      ],      specifications: {
+      ], specifications: {
         apiService: "Meets API CC/SC standards, aligning with requirements for older diesel and gasoline engines.",
         industryStandards: "Conforms to IS 13656:2002.",
         oemRequirements: "Complies with EPL-1 / EDL-1 performance levels.",
@@ -342,7 +352,7 @@ export const detailedProductData = {  automotive: {
         },
         {
           icon: "IS",
-          title: "Industry Standards", 
+          title: "Industry Standards",
           value: "IS 13656:2002"
         },
         {
@@ -357,6 +367,11 @@ export const detailedProductData = {  automotive: {
         }
       ],
       packaging: ["210 L", "26 L", "20 L", "15 L", "10 L", "7.5 L", "5 L", "3.5 L", "1 L"],
+      customPackaging: {
+        title: "Custom Packaging",
+        description: "We offer custom packaging solutions for bulk orders and specific requirements.",
+        linkText: "Contact for custom sizes →"
+      },
       technicalData: [
         {
           characteristic: "Kinematic Viscosity at 100°C., cSt",
@@ -382,22 +397,159 @@ export const detailedProductData = {  automotive: {
           sae40: "(-) 6",
           sae50: "(-) 6"
         }
-      ],      pdfs: {
+      ], pdfs: {
         msds: "/pdfs/motor_oil/EASTTO MOTOR OILS  MSDS.pdf",
         pds: "/pdfs/motor_oil/EASTTO MOTOR OIL PDS.pdf",
         brochure: "/pdfs/motor_oil/EASTTO MOTOR OIL BROCHURE.pdf"
-      },      video: {
+      }, video: {
         src: "/pdfs/motor_oil/9. Motor Engine Oil Video.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "tractor-oil": {
+      name: "EASTTO Tractor Oil 40",
+      brand: "EASTTO",
+      shortDescription: "Premium quality diesel engine oil specially formulated for tractors",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "EASTTO Tractor Oil 40 is premium quality diesel engine oil specially formulated to meet the lubrication requirements of tractors. EASTTO Tractor Oil 40 is blended from highly refined base stocks and specially selected additives to impart excellent detergency, oxidation stability, good anti-wear and anti-corrosion properties.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Tractor Engines",
+          description: "EASTTO Tractor Oil 40 is recommended as the engine oil for various make and models of tractors."
+        },
+        {
+          title: "Agricultural Equipment",
+          description: "Specially formulated for agricultural machinery requiring high-performance diesel engine lubrication."
+        },
+        {
+          title: "Heavy-Duty Farm Operations",
+          description: "Designed to provide reliable protection under demanding agricultural operating conditions."
+        }
+      ],
+      specifications: {
+        apiService: "Meets API CD standards for diesel engine applications.",
+        industryStandards: "Conforms to IS 13656:2002.",
+        oemRequirements: "Complies with EDL-2 and Caterpillar series 3 performance levels.",
+        viscosityGrades: "SAE 40 viscosity grade optimized for tractor applications."
+      },
+      performanceStandards: [
+        {
+          icon: "API",
+          title: "API Standards",
+          value: "API CD"
+        },
+        {
+          icon: "IS",
+          title: "Industry Standards",
+          value: "IS 13656:2002"
+        },
+        {
+          icon: "EDL",
+          title: "Fleet Requirements",
+          value: "EDL-2"
+        },
+        {
+          icon: "CAT",
+          title: "OEM Standards",
+          value: "Caterpillar Series 3"
+        }
+      ],
+      packaging: ["210 L", "50 L", "26 L", "20 L", "15 L", "10 L", "7.5 L", "5 L", "3.5 L", "1 L"],
+      customPackaging: {
+        title: "Custom Packaging",
+        description: "We offer custom packaging solutions for bulk orders and specific requirements.",
+        linkText: "Contact for custom sizes →"
+      },      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity at 100°C, cSt",
+          value: "14.5 - 16.0"
+        },
+        {
+          characteristic: "Viscosity Index, Min.",
+          value: "90"
+        },
+        {
+          characteristic: "Flash Point, COC, °C, Min.",
+          value: "220"
+        },
+        {
+          characteristic: "TBN, mg KOH / gm",
+          value: "9.0 - 10.0"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/tractor_oil/EASTTO TRACTOR OIL 40 MSDS.pdf",
+        pds: "/pdfs/tractor_oil/EASTTO TRACTOR OIL 40 PDS.pdf",
+        brochure: "/pdfs/tractor_oil/EASTTO TRACTOR OIL BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/tractor_oil/17. Tractor Engine Oil.mp4",
         poster: "/engine-oil-hero.jpg"
       }
     }
     // Additional products can be added here following the same structure
+  },
+  industrial: {
+    "hydraulic-oils-r-o": {
+      name: "Hydraulic Oils R & O",
+      brand: "EASTTO",
+      shortDescription: "High-quality hydraulic oils for rust and oxidation protection",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/images/warehouse-storage.jpg",
+      introduction: "Our Hydraulic Oils R & O series provides excellent rust and oxidation protection for hydraulic systems operating under moderate conditions. These oils are formulated with high-quality base stocks and carefully selected additives to ensure optimal performance and equipment protection.",
+      sectionTitles: {
+        overview: "Product Information",
+        applications: "Industrial Applications",
+        performanceStandards: "Quality Standards",
+        technicalSpecs: "Technical Properties",
+        packaging: "Available Sizes",
+        resources: "Downloads & Information"
+      },
+      applications: [
+        {
+          title: "Mobile Hydraulic Equipment",
+          description: "Suitable for hydraulic systems in construction equipment, agricultural machinery, and mobile platforms."
+        },
+        {
+          title: "Industrial Hydraulic Systems",
+          description: "Ideal for stationary hydraulic systems in manufacturing and processing facilities."
+        }
+      ],
+      performanceStandards: [
+        {
+          icon: "ISO",
+          title: "ISO Standards",
+          value: "ISO 11158 HH"
+        },
+        {
+          icon: "DIN",
+          title: "DIN Standards",
+          value: "DIN 51524 Part 1"
+        }
+      ],
+      packaging: ["208 L", "50 L", "20 L", "10 L", "5 L"],
+      customPackaging: {
+        title: "Bulk Supply Available",
+        description: "We provide bulk supply options for large industrial operations.",
+        linkText: "Inquire about bulk pricing →"
+      }
+    }
   }
   // Additional categories can be added here
 };
 
 // Category display names for navigation
-export const  categoryNames = {
+export const categoryNames = {
   automotive: "Automotive Oils",
   industrial: "Industrial Oils",
   specialty: "Specialty Lubricants",
@@ -413,6 +565,35 @@ export const  categoryNames = {
   defence: "Defence Products",
   emulsifiers: "Emulsifiers",
   larvicidal: "Mosquito Larvicidal Oil"
+};
+
+// Default section titles - used when not specified in product data
+export const defaultSectionTitles = {
+  overview: "Product Overview",
+  applications: "Applications",
+  performanceStandards: "Performance Standards",
+  technicalSpecs: "Technical Specifications",
+  packaging: "Packaging Options",
+  resources: "Product Resources"
+};
+
+// Category fallback images - used when product doesn't have heroImage or fallbackImage
+export const categoryFallbackImages = {
+  automotive: "/products/automotive.jpg",
+  industrial: "/images/warehouse-storage.jpg",
+  specialty: "/images/production-equipment.jpg",
+  marine: "/images/branded-storage-tanks.jpg",
+  textile: "/images/manufacturing-facility.jpg",
+  waxes: "/images/office-interior.jpg",
+  grease: "/images/product-inventory.jpg",
+  metalworking: "/engine-oil-hero.jpg", // Default fallback
+  solvents: "/engine-oil-hero.jpg",
+  baseoils: "/engine-oil-hero.jpg",
+  additives: "/engine-oil-hero.jpg",
+  sulphonates: "/engine-oil-hero.jpg",
+  defence: "/engine-oil-hero.jpg",
+  emulsifiers: "/engine-oil-hero.jpg",
+  larvicidal: "/engine-oil-hero.jpg"
 };
 
 export default productCategories;

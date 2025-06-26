@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useParams } from "next/navigation"
-import { detailedProductData, categoryNames } from "@/data/productCategories"
+import { detailedProductData, categoryNames, defaultSectionTitles, categoryFallbackImages } from "@/data/productCategories"
 import { useState, useEffect } from "react"
 
 export default function ProductDetailPage() {
@@ -17,6 +17,20 @@ export default function ProductDetailPage() {
 
   const productInfo = detailedProductData[category]?.[product]
   const categoryName = categoryNames[category] || "Products"
+
+  // Helper function to get section titles with fallbacks
+  const getSectionTitle = (sectionKey) => {
+    return productInfo?.sectionTitles?.[sectionKey] || defaultSectionTitles[sectionKey]
+  }
+
+  // Helper function to get appropriate image with intelligent fallback
+  const getProductImage = () => {
+    // Priority: product heroImage > product fallbackImage > category fallback > default
+    return productInfo?.heroImage ||
+      productInfo?.fallbackImage ||
+      categoryFallbackImages[category] ||
+      "/engine-oil-hero.jpg"
+  }
 
   if (!productInfo) {
     return (
@@ -145,7 +159,7 @@ export default function ProductDetailPage() {
                 <div className="bg-gray-50 rounded-lg p-4">
                   <div className="text-sm text-gray-600 mb-1">API Standard</div>
                   <div className="font-semibold text-gray-900">
-                    {productInfo.specifications?.apiService?.includes("API") 
+                    {productInfo.specifications?.apiService?.includes("API")
                       ? productInfo.specifications.apiService.split("standards")[0].replace("Meets ", "").trim()
                       : "Not Available"
                     }
@@ -156,38 +170,40 @@ export default function ProductDetailPage() {
                   <div className="font-semibold text-gray-900">{productInfo.packaging?.length || 0} Sizes</div>
                 </div>
               </div>
-            </div>            <div className="relative">              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-              {productInfo.video?.src ? (<video
-                controls
-                autoPlay
-                loop
-                playsInline
-                poster={productInfo.video.poster}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  // Hide video and show fallback image if video fails to load
-                  e.target.style.display = 'none';
-                  e.target.nextElementSibling.style.display = 'block';
-                }}
-              >
-                <source src={productInfo.video.src} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              ) : null}              {/* Fallback image - always present as backup */}
-              <Image
-                src={productInfo.heroImage || "/engine-oil-hero.jpg"}
-                alt={productInfo.name}
-                fill
-                className="object-cover"
-                style={{ display: productInfo.video?.src ? 'none' : 'block' }}
-                priority
-              />
-
-              {/* Only show gradient overlay when displaying the image, not the video */}
-              {!productInfo.video?.src && (
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              )}
             </div>
+            <div className="relative">
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+                {productInfo.video?.src ? (<video
+                  controls
+                  autoPlay
+                  loop
+                  playsInline
+                  poster={productInfo.video.poster}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Hide video and show fallback image if video fails to load
+                    e.target.style.display = 'none';
+                    e.target.nextElementSibling.style.display = 'block';
+                  }}
+                >
+                  <source src={productInfo.video.src} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                ) : null}              {/* Fallback image - always present as backup */}
+                <Image
+                  src={getProductImage()}
+                  alt={productInfo.name}
+                  fill
+                  className="object-cover"
+                  style={{ display: productInfo.video?.src ? 'none' : 'block' }}
+                  priority
+                />
+
+                {/* Only show gradient overlay when displaying the image, not the video */}
+                {!productInfo.video?.src && (
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -196,44 +212,35 @@ export default function ProductDetailPage() {
       {/* Product Information Sections */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto space-y-16">
-            {/* Introduction and Applications */}
-            <div className="grid lg:grid-cols-2 gap-12">
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Product Overview</h2>
-                <p className="text-gray-700 leading-relaxed mb-6">{productInfo.introduction}</p>                <div className="bg-orange-50 rounded-lg p-4">
-                  <h3 className="font-semibold text-orange-900 mb-2">Key Benefits</h3>
-                  <ul className="text-sm text-orange-800 space-y-1">
-                    {productInfo.benefits ? (
-                      productInfo.benefits.map((benefit, index) => (
-                        <li key={index}>• {benefit}</li>
-                      ))
-                    ) : (
-                      <>
-                        <li>• Superior engine protection</li>
-                        <li>• Extended oil life</li>
-                        <li>• Reduced maintenance costs</li>
-                        <li>• Improved fuel efficiency</li>
-                      </>
-                    )}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Applications</h2>
-                <div className="space-y-4">
-                  {productInfo.applications.map((app, index) => (
-                    <div key={index} className="border-l-4 border-orange-500 pl-4 py-2">
-                      <h3 className="font-semibold text-gray-900 mb-2">{app.title}</h3>
-                      <p className="text-sm text-gray-600">{app.description}</p>
+          <div className="max-w-6xl mx-auto space-y-16">            {/* Introduction and Applications */}
+            <div className={`grid gap-12 ${productInfo.introduction && productInfo.applications?.length > 0 ? 'lg:grid-cols-2' : 'grid-cols-1'}`}>
+              {(productInfo.introduction || productInfo.applications?.length > 0) && (
+                <>
+                  {productInfo.introduction && (
+                    <div className="bg-white rounded-2xl p-8 shadow-lg">
+                      <h2 className="text-2xl font-bold text-gray-900 mb-6">{getSectionTitle('overview')}</h2>
+                      <p className="text-gray-700 leading-relaxed mb-6">{productInfo.introduction}</p>
                     </div>
-                  ))}
-                </div>
-              </div>
-            </div>            {/* Performance Standards */}
+                  )}
+
+                  {productInfo.applications?.length > 0 && (
+                    <div className="bg-white rounded-2xl p-8 shadow-lg">
+                      <h2 className="text-2xl font-bold text-gray-900 mb-6">{getSectionTitle('applications')}</h2>
+                      <div className="space-y-4">
+                        {productInfo.applications.map((app, index) => (
+                          <div key={index} className="border-l-4 border-orange-500 pl-4 py-2">
+                            <h3 className="font-semibold text-gray-900 mb-2">{app.title}</h3>
+                            <p className="text-sm text-gray-600">{app.description}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>{/* Performance Standards */}
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Performance Standards</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">{getSectionTitle('performanceStandards')}</h2>
               <div className={`grid gap-6 ${productInfo.performanceStandards ? `md:grid-cols-${Math.min(productInfo.performanceStandards.length, 4)}` : 'md:grid-cols-4'}`}>
                 {productInfo.performanceStandards ? (
                   productInfo.performanceStandards.map((standard, index) => (
@@ -253,7 +260,7 @@ export default function ProductDetailPage() {
                         <span className="text-orange-600 font-bold text-lg">API</span>
                       </div>
                       <h3 className="font-semibold text-gray-900 mb-2">API Standards</h3>                      <p className="text-orange-600 font-medium">
-                        {productInfo.specifications?.apiService?.includes("API") 
+                        {productInfo.specifications?.apiService?.includes("API")
                           ? productInfo.specifications.apiService.split("standards")[0].replace("Meets ", "").trim()
                           : "No Information Available"
                         }
@@ -290,25 +297,25 @@ export default function ProductDetailPage() {
 
             {/* Technical Data and Packaging */}
             <div className="grid lg:grid-cols-3 gap-8">              <div className="lg:col-span-2 bg-white rounded-2xl p-8 shadow-lg">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Technical Specifications</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">{getSectionTitle('technicalSpecs')}</h2>
+              {productInfo.technicalData && productInfo.technicalData.length > 0 ? (
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead className="bg-gradient-to-r from-orange-50 to-orange-100">
                       <tr>
                         <th className="px-6 py-4 text-left font-semibold text-gray-700">Characteristics</th>
-                        {productInfo.technicalData && productInfo.technicalData.length > 0 && (
-                          Object.keys(productInfo.technicalData[0])
-                            .filter(key => key !== 'characteristic')
-                            .map((header, index) => (
-                              <th key={index} className="px-6 py-4 text-center font-semibold text-gray-700">
-                                {header.toUpperCase()}
-                              </th>
-                            ))
-                        )}
+                        {Object.keys(productInfo.technicalData[0])
+                          .filter(key => key !== 'characteristic')
+                          .map((header, index) => (
+                            <th key={index} className="px-6 py-4 text-center font-semibold text-gray-700">
+                              {header.toUpperCase()}
+                            </th>
+                          ))
+                        }
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
-                      {productInfo.technicalData?.map((row, index) => (
+                      {productInfo.technicalData.map((row, index) => (
                         <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
                           <td className="px-6 py-4 font-medium text-gray-900">{row.characteristic}</td>
                           {Object.keys(row)
@@ -324,30 +331,44 @@ export default function ProductDetailPage() {
                     </tbody>
                   </table>
                 </div>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Packaging Options</h2>
-                <div className="grid grid-cols-3 gap-3 mb-6">
-                  {productInfo.packaging.map((size, index) => (
-                    <div
-                      key={index}
-                      className="bg-orange-50 border-2 border-orange-200 rounded-lg p-3 text-center hover:border-orange-400 transition-colors"
-                    >
-                      <div className="text-orange-600 font-bold text-sm">{size}</div>
-                    </div>
-                  ))}
+              ) : (
+                <div className="text-center py-8">
+                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-600 italic">Technical specifications will be available soon.</p>
                 </div>
+              )}
+            </div><div className="bg-white rounded-2xl p-8 shadow-lg">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">{getSectionTitle('packaging')}</h2>
+                {productInfo.packaging && productInfo.packaging.length > 0 ? (
+                  <div className="grid grid-cols-3 gap-3 mb-6">
+                    {productInfo.packaging.map((size, index) => (
+                      <div
+                        key={index}
+                        className="bg-orange-50 border-2 border-orange-200 rounded-lg p-3 text-center hover:border-orange-400 transition-colors"
+                      >
+                        <div className="text-orange-600 font-bold text-sm">{size}</div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-gray-600 mb-6 italic">No standard packaging sizes listed</p>
+                )}
 
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2">Custom Packaging</h3>
-                  <p className="text-sm text-gray-600 mb-3">
-                    We offer custom packaging solutions for bulk orders and specific requirements.
-                  </p>
-                  <Link href="/contact" className="text-orange-600 hover:text-orange-700 font-medium text-sm">
-                    Contact for custom sizes →
-                  </Link>
-                </div>
+                {productInfo.customPackaging ? (
+                  <div className="bg-gray-50 rounded-lg p-4">
+                    <h3 className="font-semibold text-gray-900 mb-2">{productInfo.customPackaging.title}</h3>
+                    <p className="text-sm text-gray-600 mb-3">
+                      {productInfo.customPackaging.description}
+                    </p>
+                    <Link href="/contact" className="text-orange-600 hover:text-orange-700 font-medium text-sm">
+                      {productInfo.customPackaging.linkText}
+                    </Link>
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
@@ -356,7 +377,7 @@ export default function ProductDetailPage() {
       <section className="py-16 bg-gradient-to-r from-orange-50 to-orange-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">Product Resources</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-8">{getSectionTitle('resources')}</h2>
             <div className="grid md:grid-cols-4 gap-4">
               {/* MSDS Download */}
               {productInfo.pdfs?.msds ? (
