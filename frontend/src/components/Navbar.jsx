@@ -148,7 +148,14 @@ export default function Navbar() {
                       <div
                         className="relative"
                         onMouseEnter={() => setOpenDropdown(item.label)}
-                        onMouseLeave={() => setOpenDropdown(null)}
+                        onMouseLeave={(e) => {
+                          // Add a small delay to prevent dropdown from closing too quickly
+                          setTimeout(() => {
+                            if (!e.currentTarget.contains(document.activeElement)) {
+                              setOpenDropdown(null);
+                            }
+                          }, 100);
+                        }}
                       >                        <button
                         data-nav-item
                         data-is-dropdown="true"
@@ -166,14 +173,19 @@ export default function Navbar() {
                           </svg>
                         </button>
 
-                        {/* Dropdown Menu - Simplified */}
+                        {/* Dropdown Menu - Enhanced with better positioning */}
                         {openDropdown === item.label && (
-                          <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50">
+                          <div 
+                            className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50"
+                            onMouseEnter={() => setOpenDropdown(item.label)}
+                            onMouseLeave={() => setOpenDropdown(null)}
+                          >
                             {item.dropdown.map((subItem) => (
                               <Link
                                 key={subItem.href}
                                 href={subItem.href}
-                                className="block px-4 py-2 text-sm text-gray-700 hover:text-eastto-orange hover:bg-gray-50 transition-colors duration-150"
+                                className="block px-4 py-3 text-sm text-gray-700 hover:text-eastto-orange hover:bg-gray-50 transition-colors duration-150"
+                                onClick={() => setOpenDropdown(null)}
                               >
                                 {subItem.label}
                               </Link>
@@ -307,13 +319,16 @@ export default function Navbar() {
 
                     {/* Mobile dropdown content */}
                     {mobileDropdowns[item.label] && (
-                      <div className="ml-4 mt-1 space-y-1">
+                      <div className="ml-4 mt-1 space-y-1 bg-gray-50 rounded-lg p-2">
                         {item.dropdown.map((subItem) => (
                           <Link
                             key={subItem.href}
                             href={subItem.href}
-                            className="block py-2 px-3 text-sm text-gray-600 hover:text-eastto-orange hover:bg-gray-50 rounded-lg transition-colors duration-200"
-                            onClick={() => setIsOpen(false)}
+                            className="block py-3 px-3 text-sm text-gray-600 hover:text-eastto-orange hover:bg-white rounded-lg transition-colors duration-200"
+                            onClick={() => {
+                              setIsOpen(false);
+                              setMobileDropdowns(prev => ({ ...prev, [item.label]: false }));
+                            }}
                           >
                             {subItem.label}
                           </Link>

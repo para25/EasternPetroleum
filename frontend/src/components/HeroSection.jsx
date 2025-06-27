@@ -46,15 +46,15 @@ const HeroSlideshow = () => {
       cta: 'Personal Care Range',
 
     },
-    {
-      id: 5,
-      image: '/Banner-5.jpg',
-      title: 'ALL TEXTILE MACHINE OILS',
-      subtitle: 'Industrial Textile Solutions',
-      description: 'Specialized high-quality machine oils for optimal textile manufacturing performance.',
-      cta: 'Industrial Solutions',
+    // {
+    //   id: 5,
+    //   image: '/Banner-5.jpg',
+    //   title: 'ALL TEXTILE MACHINE OILS',
+    //   subtitle: 'Industrial Textile Solutions',
+    //   description: 'Specialized high-quality machine oils for optimal textile manufacturing performance.',
+    //   cta: 'Industrial Solutions',
 
-    }
+    // }
   ];
 
 
@@ -63,7 +63,7 @@ const HeroSlideshow = () => {
     
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
+    }, 4000);
 
     return () => clearInterval(timer);
   }, [isPlaying, slides.length]);
@@ -177,24 +177,24 @@ const HeroSlideshow = () => {
           ))}
         </div>
 
-        {/* Navigation Controls */}
+        {/* Navigation Controls - Responsive sizing */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Previous Button */}
           <button
             onClick={prevSlide}
-            className="absolute left-6 top-1/2 transform -translate-y-1/2 pointer-events-auto group bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/30"
+            className="absolute left-2 sm:left-4 lg:left-6 top-1/2 transform -translate-y-1/2 pointer-events-auto group bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-1.5 sm:p-2 lg:p-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/30"
             aria-label="Previous slide"
           >
-            <ChevronLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 group-hover:-translate-x-1 transition-transform" />
           </button>
 
           {/* Next Button */}
           <button
             onClick={nextSlide}
-            className="absolute right-6 top-1/2 transform -translate-y-1/2 pointer-events-auto group bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/30"
+            className="absolute right-2 sm:right-4 lg:right-6 top-1/2 transform -translate-y-1/2 pointer-events-auto group bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-1.5 sm:p-2 lg:p-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/30"
             aria-label="Next slide"
           >
-            <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 

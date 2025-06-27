@@ -77,34 +77,6 @@ export default function AboutUs() {
     },
   ]
 
-  const leadership = [
-    {
-      name: "Rajesh Sir",
-      role: "CEO",
-      description: "Leading the company's vision and strategic direction with over 30 years of industry experience",
-    },
-    {
-      name: "Sanjay Sir",
-      role: "CEO",
-      description: "Overseeing R&D and ensuring our products meet the highest technical standards",
-    },
-    {
-      name: "Rushab Sir",
-      role: "CEO",
-      description: "Managing production operations and maintaining our commitment to quality",
-    },
-    {
-      name: "Manan Sir",
-      role: "CEO",
-      description: "Driving business growth and building strategic partnerships across global markets",
-    },
-    {
-      name: "Pramod Sir",
-      role: "CEO",
-      description: "Ensuring compliance with international standards and continuous quality improvement",
-    },
-  ]
-
   const certifications = [
     {
       title: "ISO 9001:2015",
@@ -146,29 +118,10 @@ export default function AboutUs() {
 
   const currentLeadership = [
     {
-      name: "Rajesh Sir",
+      name: "Rajesh Rathi",
       role: "CEO",
-      description: "Leading the company's vision and strategic direction with over 30 years of industry experience",
-    },
-    {
-      name: "Sanjay Sir",
-      role: "CEO",
-      description: "Overseeing R&D and ensuring our products meet the highest technical standards",
-    },
-    {
-      name: "Rushab Sir",
-      role: "CEO",
-      description: "Managing production operations and maintaining our commitment to quality",
-    },
-    {
-      name: "Manan Sir",
-      role: "CEO",
-      description: "Driving business growth and building strategic partnerships across global markets",
-    },
-    {
-      name: "Pramod Sir",
-      role: "CEO",
-      description: "Ensuring compliance with international standards and continuous quality improvement",
+      description:
+        "Leading the company's vision and strategic direction with over 30 years of industry experience, continuing the family legacy of excellence in lubricant manufacturing",
     },
   ]
 
@@ -449,115 +402,6 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Company Timeline */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Journey</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Six decades of growth, innovation, and excellence in the lubricant industry
-            </p>
-          </div>
-
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-orange-200 hidden lg:block"></div>
-
-            <div className="space-y-12">
-              {milestones.map((milestone, index) => (
-                <div
-                  key={index}
-                  className={`flex items-center ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
-                >
-                  <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? "lg:pr-8" : "lg:pl-8"}`}>
-                    <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
-                      <div className="text-2xl font-bold text-orange-600 mb-2">{milestone.year}</div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{milestone.title}</h3>
-                      <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
-                    </div>
-                  </div>{" "}
-                  {/* Timeline dot */}
-                  <div className="hidden lg:flex w-2/12 justify-center relative z-10">
-                    <div className="w-4 h-4 bg-orange-600 rounded-full border-4 border-white shadow-lg"></div>
-                  </div>
-                  <div className="hidden lg:block w-5/12"></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Facilities & Infrastructure */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Infrastructure</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              State-of-the-art facilities and advanced technology ensuring superior product quality
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src="/factory-1.jpg"
-                alt="Product Inventory"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-xl font-bold mb-1">Factory</h3>
-                <p className="text-sm">Comprehensive product range ready for immediate delivery</p>
-              </div>
-            </div>
-
-            <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src="/InsideFactory.jpg"
-                alt="Production Equipment"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-xl font-bold mb-1">Manufacturing</h3>
-                <p className="text-sm">Cutting-edge equipment for precision formulation</p>
-              </div>
-            </div>
-
-            <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src="/factory-5.jpg"
-                alt="Storage Infrastructure"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-xl font-bold mb-1">Storage Capacity</h3>
-                <p className="text-sm">Massive storage infrastructure for bulk operations</p>
-              </div>
-            </div>
-
-            <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src="/Lab1.jpg"
-                alt="Modern Office"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-xl font-bold mb-1">Professional Workspace</h3>
-                <p className="text-sm">Modern facilities housing our expert teams</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Leadership Team */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -705,25 +549,59 @@ export default function AboutUs() {
           {/* Current Leadership */}
           <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Current Leadership</h3>
-            <div className="grid md:grid-cols-5 gap-6">
-              {currentLeadership.map((leader, index) => (
+            <div className="flex justify-center">
+              <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow duration-300 max-w-sm">
+                <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{currentLeadership[0].name}</h3>
+                <div className="text-orange-600 font-semibold mb-4 text-base">{currentLeadership[0].role}</div>
+                <p className="text-gray-600 leading-relaxed">{currentLeadership[0].description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Company Timeline */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Journey</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Six decades of growth, innovation, and excellence in the lubricant industry
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-orange-200 hidden lg:block"></div>
+
+            <div className="space-y-12">
+              {milestones.map((milestone, index) => (
                 <div
                   key={index}
-                  className="bg-white border border-gray-200 rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-shadow duration-300"
+                  className={`flex items-center ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
                 >
-                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                      />
-                    </svg>
+                  <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? "lg:pr-8" : "lg:pl-8"}`}>
+                    <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                      <div className="text-2xl font-bold text-orange-600 mb-2">{milestone.year}</div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">{milestone.title}</h3>
+                      <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
+                    </div>
+                  </div>{" "}
+                  {/* Timeline dot */}
+                  <div className="hidden lg:flex w-2/12 justify-center relative z-10">
+                    <div className="w-4 h-4 bg-orange-600 rounded-full border-4 border-white shadow-lg"></div>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{leader.name}</h3>
-                  <div className="text-orange-600 font-semibold mb-3 text-sm">{leader.role}</div>
-                  <p className="text-gray-600 leading-relaxed text-sm">{leader.description}</p>
+                  <div className="hidden lg:block w-5/12"></div>
                 </div>
               ))}
             </div>
@@ -731,8 +609,78 @@ export default function AboutUs() {
         </div>
       </section>
 
+      {/* Facilities & Infrastructure */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Infrastructure</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              State-of-the-art facilities and advanced technology ensuring superior product quality
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/Storage1.jpg"
+                alt="Product Inventory"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-xl font-bold mb-1">Extensive Inventory</h3>
+                <p className="text-sm">Comprehensive product range ready for immediate delivery</p>
+              </div>
+            </div>
+
+            <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/InsideFactory.jpg"
+                alt="Production Equipment"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-xl font-bold mb-1">Advanced Manufacturing</h3>
+                <p className="text-sm">Cutting-edge equipment for precision formulation</p>
+              </div>
+            </div>
+
+            <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/factory-5.jpg"
+                alt="Storage Infrastructure"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-xl font-bold mb-1">Storage Capacity</h3>
+                <p className="text-sm">Massive storage infrastructure for bulk operations</p>
+              </div>
+            </div>
+
+            <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/Lab1.jpg"
+                alt="Modern Office"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-xl font-bold mb-1">Professional Workspace</h3>
+                <p className="text-sm">Modern facilities housing our expert teams</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Certifications & Quality */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Quality Certifications</h2>

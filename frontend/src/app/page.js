@@ -239,7 +239,7 @@ export default function Home() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Advanced Technology</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Technology</h3>
               <p className="text-gray-600">
                 State-of-the-art research and development facilities for cutting-edge lubricant solutions
               </p>
