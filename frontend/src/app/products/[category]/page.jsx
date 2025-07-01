@@ -113,7 +113,7 @@ export default function CategoryPage() {
             <div className="relative">
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src={category.image || "/products/automotive.jpg"}
+                  src={category.image}
                   alt={category.title}
                   fill
                   className="object-cover"

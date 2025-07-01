@@ -91,14 +91,14 @@ export default function Navbar() {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About Us' },
     { href: '/products', label: 'Products' },
-    {
-      label: 'Services',
-      dropdown: [
-        { href: '/services/toll-blending', label: 'Toll-Blending' },
-        { href: '/services/used-oil', label: 'Used Oil Collection' },
-        { href: '/services/custom-packaging', label: 'Custom Packaging' },
-      ]
-    }, 
+    // {
+    //   label: 'Services',
+    //   dropdown: [
+    //     { href: '/services/toll-blending', label: 'Toll-Blending' },
+    //     { href: '/services/used-oil', label: 'Used Oil Collection' },
+    //     { href: '/services/custom-packaging', label: 'Custom Packaging' },
+    //   ]
+    // }, 
     // { href: '/downloads', label: 'Downloads' },
     { href: '/CSR_Policy_easternpetroleum.pdf', label: 'CSR Policy', target: '_blank' },
     { href: '/careers', label: 'Careers' },
