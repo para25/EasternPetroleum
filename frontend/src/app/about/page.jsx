@@ -1,15 +1,20 @@
-"use client"
-
-import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import ClientFadeIn from "@/components/ClientFadeIn"
+
+// Add metadata for SEO
+export const metadata = {
+  title: 'About Eastern Petroleum - Six Decades of Excellence in Lubricants',
+  description: 'Learn about Eastern Petroleum\'s 60+ year journey in lubricant manufacturing. Founded in 1964, we serve 500+ companies worldwide with premium quality automotive and industrial lubricants.',
+  keywords: 'Eastern Petroleum history, lubricant manufacturer, company profile, automotive lubricants, industrial lubricants, ISO certified',
+  openGraph: {
+    title: 'About Eastern Petroleum - Six Decades of Excellence in Lubricants',
+    description: 'Learn about Eastern Petroleum\'s 60+ year journey in lubricant manufacturing. Founded in 1964, we serve 500+ companies worldwide with premium quality automotive and industrial lubricants.',
+    images: ['/headoffice.jpg'],
+  },
+}
 
 export default function AboutUs() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
 
   const milestones = [
     {
@@ -141,15 +146,13 @@ export default function AboutUs() {
         </div>
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div
-              className={`transition-all duration-1000 delay-300 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
-            >
+            <ClientFadeIn>
               <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4">About Eastern Petroleum</h1>
               <p className="text-xl lg:text-2xl text-gray-200 max-w-3xl">
                 Six decades of excellence in lubricant manufacturing, serving industries across the globe with premium
                 quality products and unwavering commitment to innovation.
               </p>
-            </div>
+            </ClientFadeIn>
           </div>
         </div>
       </section>

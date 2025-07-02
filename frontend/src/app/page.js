@@ -1,54 +1,29 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import HeroSlideshow from "@/components/HeroSection";
 
+// Add metadata for SEO
+export const metadata = {
+  // metadataBase: new URL('https://easternpetroleum.com'), 
+  title: 'Eastern Petroleum - Premium Lubricants & Oil Products',
+  description: 'Leading manufacturer of high-quality lubricants and oil products with over 60 years of experience serving industries across India.',
+  keywords: 'lubricants, engine oil, industrial lubricants, automotive lubricants, Eastern Petroleum',
+  openGraph: {
+    title: 'Eastern Petroleum - Premium Lubricants & Oil Products',
+    description: 'Leading manufacturer of high-quality lubricants and oil products with over 60 years of experience serving industries across India.',
+    images: ['/headoffice.jpg'],
+  },
+}
+
 export default function Home() {
-  // Slideshow state and configuration
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const heroImages = [
-    {
-      src: "/headoffice.jpg",
-      alt: "Product transportation and logistics"
-    },
-    {
-      src: "/factory-1.jpg",
-      alt: "Industrial lubricants manufacturing facility"
-    },
-    {
-      src: "/FactoryTanks.jpg",
-      alt: "Storage tanks and industrial infrastructure"
-    },
-    {
-      src: "/InsideFactory.jpg",
-      alt: "Advanced manufacturing technology"
-    },
-    {
-      src: "/Lab2.jpg",
-      alt: "Quality assurance laboratory"
-    },
-    {
-      src: "/Transportation.jpg",
-      alt: "Product transportation and logistics"
-    },
-  ];
-
-  // Auto-advance slideshow
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-    }, 5000); // Change slide every 5 seconds
-
-    return () => clearInterval(timer);
-  }, [heroImages.length]);
+  // This is now a Server Component - pre-rendered at build time
 
   return (
     <div>
-
+      {/* HeroSlideshow remains a client component - will be hydrated after initial page load */}
       <HeroSlideshow />
+
+      {/* All the content below is now statically generated at build time */}
 
       <section className="py-16 bg-orange-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
