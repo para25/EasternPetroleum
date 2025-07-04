@@ -646,7 +646,7 @@ export default function AboutUs() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-xl font-bold mb-1">Advanced Manufacturing</h3>
+                <h3 className="text-xl font-bold mb-1">Manufacturing</h3>
                 <p className="text-sm">Cutting-edge equipment for precision formulation</p>
               </div>
             </div>
@@ -667,7 +667,7 @@ export default function AboutUs() {
 
             <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/Lab1.jpg"
+                src="/NewLab.jpg"
                 alt="Modern Office"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"

@@ -191,7 +191,7 @@ export default function Home() {
             <div className="text-center">
               <div className="h-48 mb-6 rounded-lg overflow-hidden">
                 <Image
-                  src="/Lab1.jpg"
+                  src="/NewLab.jpg"
                   alt="Quality Assurance Lab"
                   width={400}
                   height={300}
