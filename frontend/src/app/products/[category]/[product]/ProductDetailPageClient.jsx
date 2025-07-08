@@ -2,19 +2,27 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import { useParams } from "next/navigation"
 import {
+  detailedProductData,
+  categoryNames,
   defaultSectionTitles,
   categoryFallbackImages,
 } from "@/data/productCategories"
 import { useState, useEffect } from "react"
 
-export default function ProductDetailPageClient({ productInfo, category, categoryName }) {
+export default function ProductDetailPageClient() {
+  const params = useParams()
+  const { category, product } = params
   const [isVisible, setIsVisible] = useState(false)
   const [showVideo, setShowVideo] = useState(true)
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
+
+  const productInfo = detailedProductData[category]?.[product]
+  const categoryName = categoryNames[category] || "Products"
 
   // Helper function to get section titles with fallbacks
   const getSectionTitle = (sectionKey) => {
@@ -26,6 +34,41 @@ export default function ProductDetailPageClient({ productInfo, category, categor
     // Priority: product heroImage > product fallbackImage > category fallback > default
     return (
       productInfo?.heroImage || productInfo?.fallbackImage || categoryFallbackImages[category] || "/engine-oil-hero.jpg"
+    )
+  }
+
+  if (!productInfo) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+          </div>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Product Not Found</h1>
+          <p className="text-gray-600 mb-6">The product you're looking for doesn't exist or has been moved.</p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href={`/products/${category}`}
+              className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors duration-200"
+            >
+              ← Back to {categoryName}
+            </Link>
+            <Link
+              href="/products"
+              className="border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:border-orange-600 hover:text-orange-600 transition-colors duration-200"
+            >
+              Browse All Products
+            </Link>
+          </div>
+        </div>
+      </div>
     )
   }
 
