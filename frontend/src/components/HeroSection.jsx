@@ -133,7 +133,7 @@ const HeroSlideshow = () => {
 
   if (isLoading) {
     return (
-      <div className="relative w-full h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-orange-100">
+      <div className="relative w-full h-64 sm:h-80 md:h-74 lg:h-[32rem] xl:h-[36rem] 2xl:h-[43rem] flex items-center justify-center bg-gradient-to-br from-orange-50 to-orange-100">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-orange-200 border-t-orange-500 rounded-full animate-spin mx-auto"></div>
           <p className="mt-4 text-orange-600 font-medium">Loading Experience...</p>
@@ -144,7 +144,7 @@ const HeroSlideshow = () => {
 
   return (
     <>      <section 
-        className="relative w-full h-64 sm:h-80 md:h-74 lg:h-[32rem] xl:h-[36rem] 2xl:h-[43rem] overflow-hidden"
+        className="relative w-full h-64 sm:h-80 md:h-74 lg:h-[32rem] xl:h-[36rem] 2xl:h-[43rem] overflow-hidden hero-section"
         role="region"
         aria-label="Product showcase slideshow"
       >

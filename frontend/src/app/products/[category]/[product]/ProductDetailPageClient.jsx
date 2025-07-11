@@ -386,7 +386,7 @@ export default function ProductDetailPageClient() {
                   <div className="bg-gray-50 rounded-lg p-4">
                     <h3 className="font-semibold text-gray-900 mb-2">{productInfo.customPackaging.title}</h3>
                     <p className="text-sm text-gray-600 mb-3">{productInfo.customPackaging.description}</p>
-                    <Link href="/contact" className="text-orange-600 hover:text-orange-700 font-medium text-sm">
+                    <Link href="/contact" className="text-orange-600 hover:text-orange-700 font-medium text-base py-2 px-1 min-h-[44px] inline-flex items-center touch-manipulation">
                       {productInfo.customPackaging.linkText}
                     </Link>
                   </div>

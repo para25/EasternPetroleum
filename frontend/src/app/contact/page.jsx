@@ -79,11 +79,11 @@ export default function ContactPage() {
                       <p className="text-sm text-gray-600 mb-2">{contactInfo.phone.hours}</p>
                       <a
                         href="tel:022-2529-9990"
-                        className="text-orange-600 hover:text-orange-700 font-medium text-sm block"
+                        className="text-orange-600 hover:text-orange-700 font-medium text-base py-2 px-1 min-h-[44px] inline-flex items-center touch-manipulation block"
                       >
                         {contactInfo.phone.primary}
                       </a>
-                      <a href="tel:022-2742-1694" className="text-orange-600 hover:text-orange-700 font-medium text-sm">
+                      <a href="tel:022-2742-1694" className="text-orange-600 hover:text-orange-700 font-medium text-base py-2 px-1 min-h-[44px] inline-flex items-center touch-manipulation">
                         {contactInfo.phone.secondary}
                       </a>
                     </div>
@@ -106,13 +106,13 @@ export default function ContactPage() {
                       <p className="text-sm text-gray-600 mb-2">{contactInfo.email.responseTime}</p>
                       <a
                         href={`mailto:${contactInfo.email.office}`}
-                        className="text-orange-600 hover:text-orange-700 font-medium text-sm block"
+                        className="text-orange-600 hover:text-orange-700 font-medium text-base py-2 px-1 min-h-[44px] inline-flex items-center touch-manipulation block"
                       >
                         {contactInfo.email.office}
                       </a>
                       <a
                         href={`mailto:${contactInfo.email.sales}`}
-                        className="text-orange-600 hover:text-orange-700 font-medium text-sm"
+                        className="text-orange-600 hover:text-orange-700 font-medium text-base py-2 px-1 min-h-[44px] inline-flex items-center touch-manipulation"
                       >
                         {contactInfo.email.sales}
                       </a>

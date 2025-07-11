@@ -240,11 +240,11 @@ export default function Navbar() {
                 
                 {/* Phone numbers dropdown */}
                 <div className="absolute top-full right-0 mt-1 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <a href="tel:022-2529-9990" className="block px-4 py-2 text-sm text-gray-700 hover:text-eastto-orange hover:bg-gray-50 transition-colors duration-150">
+                  <a href="tel:022-2529-9990" className="block px-4 py-3 text-base text-gray-700 hover:text-eastto-orange hover:bg-gray-50 transition-colors duration-150 min-h-[44px] touch-manipulation">
                     <div className="font-medium">Office</div>
                     <div className="text-xs text-gray-500">022 – 2529 9990 / 91 / 92 / 93</div>
                   </a>
-                  <a href="tel:022-2742-1694" className="block px-4 py-2 text-sm text-gray-700 hover:text-eastto-orange hover:bg-gray-50 transition-colors duration-150">
+                  <a href="tel:022-2742-1694" className="block px-4 py-3 text-base text-gray-700 hover:text-eastto-orange hover:bg-gray-50 transition-colors duration-150 min-h-[44px] touch-manipulation">
                     <div className="font-medium">Factory</div>
                     <div className="text-xs text-gray-500">022 – 2742 1694 / 2742 3819</div>
                   </a>
@@ -282,10 +282,10 @@ export default function Navbar() {
                 <span className="text-xs text-eastto-orange font-medium">Call Now</span>
               </div>
               <div className="space-y-1">
-                <a href="tel:022-2529-9990" className="block text-sm font-medium text-gray-700 hover:text-eastto-orange">
+                <a href="tel:022-2529-9990" className="block text-base font-medium text-gray-700 hover:text-eastto-orange py-2 px-1 min-h-[44px] inline-flex items-center touch-manipulation">
                   <span className="text-xs text-gray-500">Office:</span> 022 – 2529 9990 / 91 / 92 / 93
                 </a>
-                <a href="tel:022-2742-1694" className="block text-sm font-medium text-gray-700 hover:text-eastto-orange">
+                <a href="tel:022-2742-1694" className="block text-base font-medium text-gray-700 hover:text-eastto-orange py-2 px-1 min-h-[44px] inline-flex items-center touch-manipulation">
                   <span className="text-xs text-gray-500">Factory:</span> 022 – 2742 1694 / 2742 3819
                 </a>
               </div>

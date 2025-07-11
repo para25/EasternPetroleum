@@ -77,13 +77,13 @@ export default async function CategoryPage({ params }) {
       <section className="bg-gray-50 py-4 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center space-x-2 text-sm">
-            <Link href="/products" className="text-gray-500 hover:text-eastto-orange transition-colors duration-200">
+            <Link href="/products" className="text-gray-500 hover:text-orange-600 transition-colors duration-200">
               Products
             </Link>
             <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-            <span className="text-eastto-orange font-medium">{categoryDisplayName}</span>
+            <span className="text-orange-600 font-medium">{categoryDisplayName}</span>
           </nav>
         </div>
       </section>
@@ -111,16 +111,16 @@ export default async function CategoryPage({ params }) {
                   <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors duration-200">
                     <CategoryIconDisplay paths={relatedCategory.iconPaths} />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-eastto-orange transition-colors duration-200">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-200">
                     {relatedCategory.title}
                   </h3>
                   <p className="text-sm text-gray-600 mb-3">{relatedCategory.description}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-eastto-orange font-medium">
+                    <span className="text-sm text-orange-600 font-medium">
                       {relatedCategory.products.length} Products
                     </span>
                     <svg
-                      className="w-4 h-4 text-eastto-orange group-hover:translate-x-1 transition-transform duration-200"
+                      className="w-4 h-4 text-orange-600 group-hover:translate-x-1 transition-transform duration-200"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
