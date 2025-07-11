@@ -1,54 +1,29 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import HeroSlideshow from "@/components/HeroSection";
 
+// Add metadata for SEO
+export const metadata = {
+  // metadataBase: new URL('https://easternpetroleum.com'), 
+  title: 'Eastern Petroleum - Premium Lubricants & Oil Products',
+  description: 'Leading manufacturer of high-quality lubricants and oil products with over 60 years of experience serving industries across India.',
+  keywords: 'lubricants, engine oil, industrial lubricants, automotive lubricants, Eastern Petroleum',
+  openGraph: {
+    title: 'Eastern Petroleum - Premium Lubricants & Oil Products',
+    description: 'Leading manufacturer of high-quality lubricants and oil products with over 60 years of experience serving industries across India.',
+    images: ['/headoffice.jpg'],
+  },
+}
+
 export default function Home() {
-  // Slideshow state and configuration
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const heroImages = [
-    {
-      src: "/headoffice.jpg",
-      alt: "Product transportation and logistics"
-    },
-    {
-      src: "/factory-1.jpg",
-      alt: "Industrial lubricants manufacturing facility"
-    },
-    {
-      src: "/FactoryTanks.jpg",
-      alt: "Storage tanks and industrial infrastructure"
-    },
-    {
-      src: "/InsideFactory.jpg",
-      alt: "Advanced manufacturing technology"
-    },
-    {
-      src: "/Lab2.jpg",
-      alt: "Quality assurance laboratory"
-    },
-    {
-      src: "/Transportation.jpg",
-      alt: "Product transportation and logistics"
-    },
-  ];
-
-  // Auto-advance slideshow
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-    }, 5000); // Change slide every 5 seconds
-
-    return () => clearInterval(timer);
-  }, [heroImages.length]);
+  // This is now a Server Component - pre-rendered at build time
 
   return (
     <div>
-
+      {/* HeroSlideshow remains a client component - will be hydrated after initial page load */}
       <HeroSlideshow />
+
+      {/* All the content below is now statically generated at build time */}
 
       <section className="py-16 bg-orange-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -149,7 +124,7 @@ export default function Home() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                   />
                 </svg>
               </div>
@@ -216,7 +191,7 @@ export default function Home() {
             <div className="text-center">
               <div className="h-48 mb-6 rounded-lg overflow-hidden">
                 <Image
-                  src="/Lab1.jpg"
+                  src="/NewLab.jpg"
                   alt="Quality Assurance Lab"
                   width={400}
                   height={300}
@@ -239,7 +214,7 @@ export default function Home() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Advanced Technology</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Technology</h3>
               <p className="text-gray-600">
                 State-of-the-art research and development facilities for cutting-edge lubricant solutions
               </p>

@@ -91,14 +91,14 @@ export default function Navbar() {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About Us' },
     { href: '/products', label: 'Products' },
-    {
-      label: 'Services',
-      dropdown: [
-        { href: '/services/toll-blending', label: 'Toll-Blending' },
-        { href: '/services/used-oil', label: 'Used Oil Collection' },
-        { href: '/services/custom-packaging', label: 'Custom Packaging' },
-      ]
-    }, 
+    // {
+    //   label: 'Services',
+    //   dropdown: [
+    //     { href: '/services/toll-blending', label: 'Toll-Blending' },
+    //     { href: '/services/used-oil', label: 'Used Oil Collection' },
+    //     { href: '/services/custom-packaging', label: 'Custom Packaging' },
+    //   ]
+    // }, 
     // { href: '/downloads', label: 'Downloads' },
     { href: '/CSR_Policy_easternpetroleum.pdf', label: 'CSR Policy', target: '_blank' },
     { href: '/careers', label: 'Careers' },
@@ -148,7 +148,14 @@ export default function Navbar() {
                       <div
                         className="relative"
                         onMouseEnter={() => setOpenDropdown(item.label)}
-                        onMouseLeave={() => setOpenDropdown(null)}
+                        onMouseLeave={(e) => {
+                          // Add a small delay to prevent dropdown from closing too quickly
+                          setTimeout(() => {
+                            if (!e.currentTarget.contains(document.activeElement)) {
+                              setOpenDropdown(null);
+                            }
+                          }, 100);
+                        }}
                       >                        <button
                         data-nav-item
                         data-is-dropdown="true"
@@ -166,14 +173,19 @@ export default function Navbar() {
                           </svg>
                         </button>
 
-                        {/* Dropdown Menu - Simplified */}
+                        {/* Dropdown Menu - Enhanced with better positioning */}
                         {openDropdown === item.label && (
-                          <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50">
+                          <div 
+                            className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50"
+                            onMouseEnter={() => setOpenDropdown(item.label)}
+                            onMouseLeave={() => setOpenDropdown(null)}
+                          >
                             {item.dropdown.map((subItem) => (
                               <Link
                                 key={subItem.href}
                                 href={subItem.href}
-                                className="block px-4 py-2 text-sm text-gray-700 hover:text-eastto-orange hover:bg-gray-50 transition-colors duration-150"
+                                className="block px-4 py-3 text-sm text-gray-700 hover:text-eastto-orange hover:bg-gray-50 transition-colors duration-150"
+                                onClick={() => setOpenDropdown(null)}
                               >
                                 {subItem.label}
                               </Link>
@@ -228,11 +240,11 @@ export default function Navbar() {
                 
                 {/* Phone numbers dropdown */}
                 <div className="absolute top-full right-0 mt-1 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <a href="tel:022-2529-9990" className="block px-4 py-2 text-sm text-gray-700 hover:text-eastto-orange hover:bg-gray-50 transition-colors duration-150">
+                  <a href="tel:022-2529-9990" className="block px-4 py-3 text-base text-gray-700 hover:text-eastto-orange hover:bg-gray-50 transition-colors duration-150 min-h-[44px] touch-manipulation">
                     <div className="font-medium">Office</div>
                     <div className="text-xs text-gray-500">022 – 2529 9990 / 91 / 92 / 93</div>
                   </a>
-                  <a href="tel:022-2742-1694" className="block px-4 py-2 text-sm text-gray-700 hover:text-eastto-orange hover:bg-gray-50 transition-colors duration-150">
+                  <a href="tel:022-2742-1694" className="block px-4 py-3 text-base text-gray-700 hover:text-eastto-orange hover:bg-gray-50 transition-colors duration-150 min-h-[44px] touch-manipulation">
                     <div className="font-medium">Factory</div>
                     <div className="text-xs text-gray-500">022 – 2742 1694 / 2742 3819</div>
                   </a>
@@ -270,10 +282,10 @@ export default function Navbar() {
                 <span className="text-xs text-eastto-orange font-medium">Call Now</span>
               </div>
               <div className="space-y-1">
-                <a href="tel:022-2529-9990" className="block text-sm font-medium text-gray-700 hover:text-eastto-orange">
+                <a href="tel:022-2529-9990" className="block text-base font-medium text-gray-700 hover:text-eastto-orange py-2 px-1 min-h-[44px] inline-flex items-center touch-manipulation">
                   <span className="text-xs text-gray-500">Office:</span> 022 – 2529 9990 / 91 / 92 / 93
                 </a>
-                <a href="tel:022-2742-1694" className="block text-sm font-medium text-gray-700 hover:text-eastto-orange">
+                <a href="tel:022-2742-1694" className="block text-base font-medium text-gray-700 hover:text-eastto-orange py-2 px-1 min-h-[44px] inline-flex items-center touch-manipulation">
                   <span className="text-xs text-gray-500">Factory:</span> 022 – 2742 1694 / 2742 3819
                 </a>
               </div>
@@ -307,13 +319,16 @@ export default function Navbar() {
 
                     {/* Mobile dropdown content */}
                     {mobileDropdowns[item.label] && (
-                      <div className="ml-4 mt-1 space-y-1">
+                      <div className="ml-4 mt-1 space-y-1 bg-gray-50 rounded-lg p-2">
                         {item.dropdown.map((subItem) => (
                           <Link
                             key={subItem.href}
                             href={subItem.href}
-                            className="block py-2 px-3 text-sm text-gray-600 hover:text-eastto-orange hover:bg-gray-50 rounded-lg transition-colors duration-200"
-                            onClick={() => setIsOpen(false)}
+                            className="block py-3 px-3 text-sm text-gray-600 hover:text-eastto-orange hover:bg-white rounded-lg transition-colors duration-200"
+                            onClick={() => {
+                              setIsOpen(false);
+                              setMobileDropdowns(prev => ({ ...prev, [item.label]: false }));
+                            }}
                           >
                             {subItem.label}
                           </Link>

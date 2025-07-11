@@ -42,7 +42,7 @@ export const svgIcons = {
     "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
   ],
   defence: [
-    "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+    "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
   ],
   emulsifiers: [
     "M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
@@ -61,7 +61,7 @@ export const convertToDetailedProducts = (products) => {
         .toLowerCase()
         .replace(/[^\w\s]/g, '')  // Remove special characters
         .replace(/\s+/g, '-');     // Replace spaces with hyphens
-      
+
       return {
         id,
         name: product,
@@ -96,11 +96,11 @@ const productCategories = [
       "Rio Engine Oil",
       "Ready Kool",
       "Multigrad Oil",
-      "Motor Oil",
+      // "Motor Oil",
       "GEM 15W/-40",
       "Brake Fluid",
     ],
-  },  {
+  }, {
     id: "industrial",
     title: "Industrial Oils",
     description: "High-performance lubricants for industrial machinery and equipment",
@@ -129,7 +129,7 @@ const productCategories = [
       "Compounded Fluids",
       "Axle Oils",
     ],
-  },  {
+  }, {
     id: "specialty",
     title: "Industrial Specialty Oils",
     description: "Specialized lubricants for unique industrial applications",
@@ -153,14 +153,14 @@ const productCategories = [
       "Demoulding Oil",
       "Mould Releasing Agent",
     ],
-  },  {
+  }, {
     id: "marine",
     title: "Marine Oils",
     description: "Marine-grade lubricants for maritime applications",
     iconPaths: svgIcons.marine,
     image: "/images/branded-storage-tanks.jpg",
     products: ["Marine Engine Oil", "Marine Turbine Oil", "Marine Hydraulic Oil"],
-  },  {
+  }, {
     id: "textile",
     title: "Textile Oils",
     description: "Specialized lubricants for textile machinery and processes",
@@ -174,7 +174,7 @@ const productCategories = [
       "Spintex Oils",
       "Conmol Oil",
     ],
-  },  {
+  }, {
     id: "waxes",
     title: "Specialty Oils & Waxes",
     description: "Premium waxes and specialty oils for various applications",
@@ -190,7 +190,7 @@ const productCategories = [
       "Bees Wax",
       "Carnauba Wax",
     ],
-  },  {
+  }, {
     id: "grease",
     title: "Grease",
     description: "High-quality greases for various lubrication needs",
@@ -204,7 +204,7 @@ const productCategories = [
       "Eastto Lithox Grease (NLGI 2&3)",
       "Eastto High Temp Grease",
     ],
-  },  {
+  }, {
     id: "metalworking",
     title: "Metal Working Fluids",
     description: "Cutting fluids and metalworking lubricants",
@@ -218,7 +218,7 @@ const productCategories = [
       "Metalhone TX",
       "Gun Drilling Oil",
     ],
-  },  {
+  }, {
     id: "solvents",
     title: "Solvents",
     description: "Industrial solvents and aromatic compounds",
@@ -231,7 +231,7 @@ const productCategories = [
       "Paraffin Rich Low Aromatic Solvent",
       "Eastonol-A (Paraffin Rich Low Aromatic Solvent)",
     ],
-  },  {
+  }, {
     id: "baseoils",
     title: "Base Oils",
     description: "High-quality base oils for lubricant formulation",
@@ -243,14 +243,14 @@ const productCategories = [
       "Base Oils : LX-30, LX-100",
       "Low Visc PX- 3",
     ],
-  },  {
+  }, {
     id: "additives",
     title: "Fuel Additives",
     description: "Performance additives for fuel enhancement",
     iconPaths: svgIcons.additives,
     image: "/images/manufacturing-facility.jpg",
     products: ["Fuel Performance Additives", "Engine Treatment Additives", "Fuel System Cleaners"],
-  },  {
+  }, {
     id: "sulphonates",
     title: "Sulphonates",
     description: "Petroleum sulphonates for various applications",
@@ -262,7 +262,7 @@ const productCategories = [
       "Barium Petroleum Sulphonate (Eastto PET 800)",
       "Magnesium Petroleum Sulphonate (Eastto PET 1400)",
     ],
-  },  {
+  }, {
     id: "defence",
     title: "Defence Lubricants",
     description: "Military-grade lubricants for defense applications",
@@ -280,14 +280,14 @@ const productCategories = [
       "Defence Greases",
       "Defence Engine Oil",
     ],
-  },  {
+  }, {
     id: "emulsifiers",
     title: "Emulsifiers",
     description: "Industrial emulsifiers and cutting compounds",
     iconPaths: svgIcons.emulsifiers,
     image: "/images/production-equipment.jpg",
     products: ["Eastto Conkut EX & CX"],
-  },  {
+  }, {
     id: "larvicidal",
     title: "Mosquito Larvicidal Oil",
     description: "Specialized oil for mosquito control applications",
@@ -308,13 +308,23 @@ export const getDetailedProductCategories = () => {
 };
 
 // Detailed product information for individual product pages
-export const detailedProductData = {  automotive: {
+export const detailedProductData = {
+  automotive: {
     "engine-oil": {
       name: "Motor Engine Oil (SAE 30, 40, 50)",
       brand: "EASTTO",
       shortDescription: "High-performance motor engine oils for various applications",
       heroImage: "/engine-oil-hero.jpg",
+      fallbackImage: "/products/automotive.jpg", // Category-specific fallback
       introduction: "Motor Engine Oils in grades SAE 30, SAE 40, and SAE 50 are expertly blended from highly refined base stocks with a high viscosity index. They incorporate a balanced additive package providing detergent, dispersant, antioxidant, and anti-wear properties. These oils are designed to ensure reliable lubrication, prevent deposit formation, control oxidation, and protect moving parts under a range of operating conditions.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
       applications: [
         {
           title: "Four-Stroke Gasoline Engines (Older Designs)",
@@ -328,14 +338,40 @@ export const detailedProductData = {  automotive: {
           title: "Older Automotive Diesel Engines (Commercial Fleets)",
           description: "Particularly well-suited for legacy diesel engines in fleet operation, offering protection under heavy-duty cycles."
         }
-      ],
-      specifications: {
+      ], specifications: {
         apiService: "Meets API CC/SC standards, aligning with requirements for older diesel and gasoline engines.",
         industryStandards: "Conforms to IS 13656:2002.",
         oemRequirements: "Complies with EPL-1 / EDL-1 performance levels.",
         viscosityGrades: "Available in SAE 30, SAE 40, and SAE 50 to suit varied engine designs and operating conditions."
       },
+      performanceStandards: [
+        {
+          icon: "API",
+          title: "API Standards",
+          value: "API CC/SC"
+        },
+        {
+          icon: "IS",
+          title: "Industry Standards",
+          value: "IS 13656:2002"
+        },
+        {
+          icon: "EPL",
+          title: "Fleet Requirements",
+          value: "EPL-1 / EDL-1"
+        },
+        {
+          icon: "SAE",
+          title: "Viscosity Grades",
+          value: "30, 40, 50"
+        }
+      ],
       packaging: ["210 L", "26 L", "20 L", "15 L", "10 L", "7.5 L", "5 L", "3.5 L", "1 L"],
+      customPackaging: {
+        title: "Custom Packaging",
+        description: "We offer custom packaging solutions for bulk orders and specific requirements.",
+        linkText: "Contact for custom sizes →"
+      },
       technicalData: [
         {
           characteristic: "Kinematic Viscosity at 100°C., cSt",
@@ -361,22 +397,1630 @@ export const detailedProductData = {  automotive: {
           sae40: "(-) 6",
           sae50: "(-) 6"
         }
-      ],      pdfs: {
+      ], pdfs: {
         msds: "/pdfs/motor_oil/EASTTO MOTOR OILS  MSDS.pdf",
         pds: "/pdfs/motor_oil/EASTTO MOTOR OIL PDS.pdf",
         brochure: "/pdfs/motor_oil/EASTTO MOTOR OIL BROCHURE.pdf"
-      },      video: {
+      }, video: {
         src: "/pdfs/motor_oil/9. Motor Engine Oil Video.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "tractor-oil": {
+      name: "EASTTO Tractor Oil 40",
+      brand: "EASTTO",
+      shortDescription: "Premium quality diesel engine oil specially formulated for tractors",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "EASTTO Tractor Oil 40 is premium quality diesel engine oil specially formulated to meet the lubrication requirements of tractors. EASTTO Tractor Oil 40 is blended from highly refined base stocks and specially selected additives to impart excellent detergency, oxidation stability, good anti-wear and anti-corrosion properties.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Tractor Engines",
+          description: "EASTTO Tractor Oil 40 is recommended as the engine oil for various make and models of tractors."
+        },
+        {
+          title: "Agricultural Equipment",
+          description: "Specially formulated for agricultural machinery requiring high-performance diesel engine lubrication."
+        },
+        {
+          title: "Heavy-Duty Farm Operations",
+          description: "Designed to provide reliable protection under demanding agricultural operating conditions."
+        }
+      ],
+      specifications: {
+        apiService: "Meets API CD standards for diesel engine applications.",
+        industryStandards: "Conforms to IS 13656:2002.",
+        oemRequirements: "Complies with EDL-2 and Caterpillar series 3 performance levels.",
+        viscosityGrades: "SAE 40 viscosity grade optimized for tractor applications."
+      },
+      performanceStandards: [
+        {
+          icon: "API",
+          title: "API Standards",
+          value: "API CD"
+        },
+        {
+          icon: "IS",
+          title: "Industry Standards",
+          value: "IS 13656:2002"
+        },
+        {
+          icon: "EDL",
+          title: "Fleet Requirements",
+          value: "EDL-2"
+        },
+        {
+          icon: "CAT",
+          title: "OEM Standards",
+          value: "Caterpillar Series 3"
+        }
+      ],
+      packaging: ["210 L", "50 L", "26 L", "20 L", "15 L", "10 L", "7.5 L", "5 L", "3.5 L", "1 L"],
+      customPackaging: {
+        title: "Custom Packaging",
+        description: "We offer custom packaging solutions for bulk orders and specific requirements.",
+        linkText: "Contact for custom sizes →"
+      },      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity at 100°C, cSt",
+          value: "14.5 - 16.0"
+        },
+        {
+          characteristic: "Viscosity Index, Min.",
+          value: "90"
+        },
+        {
+          characteristic: "Flash Point, COC, °C, Min.",
+          value: "220"
+        },
+        {
+          characteristic: "TBN, mg KOH / gm",
+          value: "9.0 - 10.0"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/tractor_oil/EASTTO TRACTOR OIL 40 MSDS.pdf",
+        pds: "/pdfs/tractor_oil/EASTTO TRACTOR OIL 40 PDS.pdf",
+        brochure: "/pdfs/tractor_oil/EASTTO TRACTOR OIL BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/tractor_oil/17. Tractor Engine Oil.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "gen-set-oil": {
+      name: "EASTTO Gen Set Oil 20W-40",
+      brand: "EASTTO",
+      shortDescription: "Premium generator set oil for stationary diesel engines",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "GEN SET OIL 20W-40 is blended from highly refined base stocks with high viscosity index and additives that impart detergent, dispersant, anti-oxidant and anti-wear properties. Besides lowering the maintenance cost, EASTTO GEN SET OIL 20W-40 enhances the engine life with less wear and tear and controlling sludge / varnish.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Stationary Diesel Engines",
+          description: "EASTTO GEN SET OIL 20W-40 is recommended for use as crankcase oils for slow, medium and high speed stationary diesel engines."
+        },
+        {
+          title: "Generator Set Applications",
+          description: "Specially formulated for generator set oil applications, ensuring reliable power generation with reduced maintenance costs."
+        },
+        {
+          title: "All-Season Performance",
+          description: "Suitable for all seasons and reduces oil consumption, making it ideal for continuous operation requirements."
+        }
+      ],
+      specifications: {
+        apiService: "Meets API CF standards for diesel engine applications.",
+        industryStandards: "Conforms to IS: 13656-2014.",
+        oemRequirements: "Complies with EDL-2 performance levels.",
+        viscosityGrades: "SAE 20W-40 multigrade formulation for optimal flow characteristics."
+      },
+      performanceStandards: [
+        {
+          icon: "API",
+          title: "API Standards",
+          value: "API CF"
+        },
+        {
+          icon: "IS",
+          title: "Industry Standards",
+          value: "IS: 13656-2014"
+        },
+        {
+          icon: "EDL",
+          title: "Fleet Requirements",
+          value: "EDL-2"
+        },
+        {
+          icon: "SAE",
+          title: "Viscosity Grade",
+          value: "20W-40"
+        }
+      ],
+      packaging: ["210 L", "50 L", "26 L", "20 L", "10 L", "7.5 L", "5 L"],
+      customPackaging: {
+        title: "Custom Packaging",
+        description: "We offer custom packaging solutions for bulk orders and specific requirements.",
+        linkText: "Contact for custom sizes →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity at 100°C, cSt",
+          value: "14.5"
+        },
+        {
+          characteristic: "Flash Point, COC, °C, Min.",
+          value: "220"
+        },
+        {
+          characteristic: "TBN, mg KOH / gm",
+          value: "10.0"
+        },
+        {
+          characteristic: "Pour Point, °C",
+          value: "(-) 21"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/genset_oil/EASTTO GEN SET OIL SAE 40  MSDS.pdf",
+        pds: "/pdfs/genset_oil/EASTTO GEN SET OIL 20W-40 PDS.pdf",
+        brochure: "/pdfs/genset_oil/EASTTO GEN SET OIL 20W-40 BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/genset_oil/8. Generator set Oil.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "pump-set-oil": {
+      name: "EASTTO Pump Set Oil (SAE 40, 50)",
+      brand: "EASTTO",
+      shortDescription: "Premium pump set oils for stationary diesel engines in agricultural applications",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "Pump Set Oil 40, 50 are blended from highly refined base stocks with high viscosity index and additives that impart detergent, dispersant, anti-oxidant and anti-wear properties. Besides lowering the maintenance cost, EASTTO PUMP SET OIL 40, 50 enhance the engine life with less wear and tear.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Stationary Diesel Engines",
+          description: "EASTTO Pump Set Oil 40, 50 are recommended for use as crankcase oils for slow, medium and high speed stationary diesel engines."
+        },
+        {
+          title: "Agricultural Pump Sets",
+          description: "Specially formulated as Pump Set Oil for agricultural applications, ensuring reliable water pumping operations with enhanced engine protection."
+        },
+        {
+          title: "Generator Set Applications",
+          description: "Also suitable for use as Generator Set Oil, providing versatile performance for various stationary engine applications."
+        },
+        {
+          title: "Agricultural Area Operations",
+          description: "Especially recommended for agricultural areas where reliable and cost-effective lubrication is essential for farming operations."
+        }
+      ],
+      specifications: {
+        apiService: "Meets API CC/SC standards for diesel and gasoline engine applications.",
+        industryStandards: "Conforms to IS: 13656-2014.",
+        oemRequirements: "Complies with EPL-1/EDL-1 performance levels.",
+        viscosityGrades: "Available in SAE 40 and SAE 50 grades to suit different operating conditions and engine requirements."
+      },
+      performanceStandards: [
+        {
+          icon: "API",
+          title: "API Standards",
+          value: "API CC/SC"
+        },
+        {
+          icon: "IS",
+          title: "Industry Standards",
+          value: "IS: 13656-2014"
+        },
+        {
+          icon: "EPL",
+          title: "Fleet Requirements",
+          value: "EPL-1/EDL-1"
+        },
+        {
+          icon: "SAE",
+          title: "Viscosity Grades",
+          value: "40, 50"
+        }
+      ],
+      packaging: ["210 L", "26 L", "20 L", "15 L", "10 L", "7.5 L", "5 L"],
+      customPackaging: {
+        title: "Custom Packaging",
+        description: "We offer custom packaging solutions for bulk orders and specific requirements.",
+        linkText: "Contact for custom sizes →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity at 100°C, cSt",
+          sae40: "12.0",
+          sae50: "14.0"
+        },
+        {
+          characteristic: "Flash Point, COC, °C",
+          sae40: "220",
+          sae50: "220"
+        },
+        {
+          characteristic: "TBN, mg KOH / gm",
+          sae40: "5.0",
+          sae50: "5.0"
+        },
+        {
+          characteristic: "Pour Point, °C, Max.",
+          sae40: "(-) 6",
+          sae50: "(-) 6"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/pump_set_oil/EASTTO PUMP SET OILS  MSDS.pdf",
+        pds: "/pdfs/pump_set_oil/EASTTO PUMP SET OIL PDS.pdf",
+        brochure: "/pdfs/pump_set_oil/EASTTO PUMP SET OIL BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/pump_set_oil/11. Pump Set Oil_A.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "2t-oil": {
+      name: "EASTTO 2T Oil",
+      brand: "EASTTO",
+      shortDescription: "Low smoke semi-synthetic two stroke engine oil for mopeds, scooters, and motorcycles",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "EASTTO 2T OIL is low smoke semi-synthetic two stroke engine oil developed to meet the critical requirements of two stroke engines manufactured by all leading auto makers. It is blended from selected base stocks and special additives to minimise spark plug fouling and pre – ignition, prevent rusting, minimise deposit formation and provide protection against seizure, scuffing and wear. It is specifically formulated to give additional advantage of lower consumption of fuel. It contains a diluent for easy mixing with gasoline and is dyed green for easy identification.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Two-Stroke Engine Vehicles",
+          description: "EASTTO 2T OIL is recommended for lubrication of mopeds, scooters, motorcycles and autorickshaws, operating on two stroke engines."
+        },
+        {
+          title: "Fuel Mixing Application",
+          description: "The recommended dosage is 20 ml of oil per litre of petrol for optimal engine protection and performance."
+        },
+        {
+          title: "Urban Transportation",
+          description: "Ideal for city commuting vehicles where low smoke emission and fuel efficiency are important considerations."
+        }
+      ],
+      specifications: {
+        apiService: "Meets JASO FC specifications for two-stroke engine applications.",
+        industryStandards: "Conforms to JASO FC performance standards.",
+        oemRequirements: "Suitable for all leading auto makers' two-stroke engines.",
+        viscosityGrades: "Optimized viscosity for two-stroke engine lubrication requirements."
+      },
+      performanceStandards: [
+        {
+          icon: "JASO",
+          title: "JASO Standards",
+          value: "JASO FC"
+        },
+        {
+          icon: "2T",
+          title: "Engine Type",
+          value: "Two-Stroke"
+        },
+        {
+          icon: "MIX",
+          title: "Mixing Ratio",
+          value: "20 ml per litre"
+        },
+        {
+          icon: "GREEN",
+          title: "Identification",
+          value: "Green Dyed"
+        }
+      ],
+      packaging: ["210 L", "26 L", "20 L", "1 L", "900 ml", "800 ml", "500 ml pouch"],
+      customPackaging: {
+        title: "Custom Packaging",
+        description: "Available in convenient pouch packs for easy handling and storage.",
+        linkText: "Contact for custom sizes →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity at 40°C, cSt",
+          value: "50.0 to 60.0"
+        },
+        {
+          characteristic: "Flash Point, COC, °C, Min.",
+          value: "70"
+        },
+        {
+          characteristic: "Sulphated Ash, % by Weight, Max",
+          value: "0.25"
+        },
+        {
+          characteristic: "Pour Point, °C, Max.",
+          value: "(-) 12"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/2T_oil/EASTTO 2T OIL MSDS.pdf",
+        pds: "/pdfs/2T_oil/EASTTO 2T OIL PDS.pdf",
+        brochure: "/pdfs/2T_oil/EASTTO 2T OIL BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/2T_oil/2T OIL.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "gas-engine-oil": {
+      name: "Gas Engine Oil (SAE 40, 20W-50)",
+      brand: "EASTTO",
+      shortDescription: "High performance premium quality gas engine oils for CNG and LPG vehicles",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "GAS ENGINE OIL SAE 40 & 20W-50 are high performance premium quality Gas Engine Oils with medium ash content for light vehicles running on Compressed Natural Gas (CNG) and Liquefied Petroleum Gas (LPG). These oils have extended oil life due to excellent oxidation and nitration resistance. Medium ash content prolongs the life of the exhaust valves and spark plugs and keeps the pistons and engine clean for smooth operation. These oils are also compatible with catalytic converter fitted in the exhaust system of vehicles.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "CNG Vehicles",
+          description: "EASTTO GAS ENGINE OIL SAE 40 & 20W-50 are recommended for use in light vehicles, cars, buses, etc. running on Compressed Natural Gas (CNG)."
+        },
+        {
+          title: "LPG Vehicles",
+          description: "Specially formulated for vehicles operating on Liquefied Petroleum Gas (LPG), providing excellent protection and performance."
+        },
+        {
+          title: "Commercial Transportation",
+          description: "Ideal for Autorickshaws (4 stroke), Taxis, and commercial vehicles that require reliable lubrication for gas-powered engines."
+        },
+        {
+          title: "Catalytic Converter Compatible",
+          description: "Compatible with catalytic converter systems, ensuring compliance with emission standards while maintaining engine cleanliness."
+        }
+      ],
+      specifications: {
+        apiService: "Meets API CD/SF standards for gas engine applications.",
+        industryStandards: "Conforms to IS: 13656-2002.",
+        oemRequirements: "Complies with EDL-2 performance levels.",
+        viscosityGrades: "Available in SAE 40 and SAE 20W-50 grades for different operating conditions and seasonal requirements."
+      },
+      performanceStandards: [
+        {
+          icon: "API",
+          title: "API Standards",
+          value: "API CD/SF"
+        },
+        {
+          icon: "IS",
+          title: "Industry Standards",
+          value: "IS: 13656-2002"
+        },
+        {
+          icon: "EDL",
+          title: "Fleet Requirements",
+          value: "EDL-2"
+        },
+        {
+          icon: "GAS",
+          title: "Fuel Compatibility",
+          value: "CNG/LPG"
+        }
+      ],
+      packaging: ["210 L", "26 L", "20 L", "15 L", "10 L", "7.5 L", "5 L"],
+      customPackaging: {
+        title: "Custom Packaging",
+        description: "We offer custom packaging solutions for bulk orders and fleet operations.",
+        linkText: "Contact for custom sizes →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity at 100°C, cSt",
+          sae40: "14",
+          "20w50": "18.5"
+        },
+        {
+          characteristic: "Flash Point, °C, Min.",
+          sae40: "220",
+          "20w50": "220"
+        },
+        {
+          characteristic: "Pour Point, °C, Max.",
+          sae40: "(-) 9",
+          "20w50": "(-) 21"
+        },
+        {
+          characteristic: "Sulphated Ash, % Wt., Max.",
+          sae40: "1.0",
+          "20w50": "1.0"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/gas_engine_oil/EASTTO GAS ENGINE OIL MSDS.pdf",
+        pds: "/pdfs/gas_engine_oil/EASTTO GAS ENGINE OIL PDS.pdf",
+        brochure: "/pdfs/gas_engine_oil/EASTTO GAS ENGINE OIL BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/gas_engine_oil/Gas Engine Oil Video.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "gear-oil": {
+      name: "EASTTO Gear Oil (80W-90 API GL-5, 85W-140 API GL-5)",
+      brand: "EASTTO",
+      shortDescription: "Extreme pressure multi-grade automotive gear lubricants for hypoid and spiral bevel gears",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "Gear oil 80W-90 API GL-5, 85W-140 API GL-5 are extreme pressure multi-grade automotive gear lubricants. These oils are blended from specially selected base stocks and additives to provide extreme pressure, anti-rust, anti-corrosion characteristics. These high-performance gear oils are specially designed for power transmission units of vehicles operating under demanding conditions, including sub-zero temperatures.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Automotive Differential Systems",
+          description: "Gear oil 80W-90 API GL-5, 85W-140 API GL-5 oils are recommended for passenger car, bus and highway truck for the lubrication of hypoid, spiral bevel and worm gear axles."
+        },
+        {
+          title: "Manual Transmissions",
+          description: "Specially formulated for manual transmission systems requiring extreme pressure gear lubricants of API GL-5 specification."
+        },
+        {
+          title: "Commercial Vehicle Applications",
+          description: "Ideal for heavy-duty commercial vehicles including buses and highway trucks operating under severe service conditions."
+        },
+        {
+          title: "Sub-Zero Temperature Operations",
+          description: "EASTTO GEAR OIL EP 80W & EP 80W-90 are specially designed for power transmission units of vehicles operating at sub-zero temperatures."
+        }
+      ],
+      specifications: {
+        apiService: "Meets API GL-5 service classification for extreme pressure applications.",
+        industryStandards: "Conforms to IS: 1118-1992 EP Type GL-5.",
+        oemRequirements: "Complies with API service classification GL-4 and GL-5 performance levels.",
+        viscosityGrades: "Available in 80W-90 and 85W-140 viscosity grades for different operating temperature ranges and load conditions."
+      },
+      performanceStandards: [
+        {
+          icon: "API",
+          title: "API Standards",
+          value: "API GL-5"
+        },
+        {
+          icon: "IS",
+          title: "Industry Standards",
+          value: "IS: 1118-1992 EP Type GL-5"
+        },
+        {
+          icon: "EP",
+          title: "Extreme Pressure",
+          value: "EP Protection"
+        },
+        {
+          icon: "TEMP",
+          title: "Temperature Range",
+          value: "Sub-Zero Capable"
+        }
+      ],
+      packaging: ["210 L", "26 L", "20 L", "15 L", "10 L", "7.5 L", "5 L", "1 L"],
+      customPackaging: {
+        title: "Custom Packaging",
+        description: "We offer custom packaging solutions for bulk orders and fleet operations.",
+        linkText: "Contact for custom sizes →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity at 100°C, cSt",
+          "80w90": "9",
+          "85w140": "14.5"
+        },
+        {
+          characteristic: "Viscosity Index, Min.",
+          "80w90": "90",
+          "85w140": "90"
+        },
+        {
+          characteristic: "Flash Point, COC, °C",
+          "80w90": "170",
+          "85w140": "180"
+        },
+        {
+          characteristic: "Pour Point, °C, Max.",
+          "80w90": "(-) 24",
+          "85w140": "(-) 24"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/gear_oil/EASTTO GEAR OIL EP 90 & EP 140 MSDS.pdf",
+        pds: "/pdfs/gear_oil/EASTTO GEAR OIL EP 90 & EP 140 PDS.pdf",
+        brochure: "/pdfs/gear_oil/EASTTO EXTRA EP 80W-90 & 85W-140  brochure.pdf"
+      },
+      video: {
+        src: "/pdfs/gear_oil/Gear Oil 90-140 video.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "radiator-coolant": {
+      name: "EASTTO Radiator Coolant",
+      brand: "EASTTO",
+      shortDescription: "Premium quality synthetic radiator coolant for all-season engine protection",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "Radiator Coolant is a premium quality synthetic radiator coolant which is free from amines, borates, silicates and phosphates. Radiator Coolant is easily miscible with water and possesses excellent hard water stability. Radiator Coolant has good chemical stability and protects non-metallic components of engine radiator coolant, like gaskets and hoses. It exhibits high boiling point and low freezing point to take care of summer and winter conditions.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Mobile Automotive Engines",
+          description: "Radiator Coolant is recommended for use in mobile automotive engines having closed loop radiator coolant circulation systems."
+        },
+        {
+          title: "Stationary Automotive Engines",
+          description: "Ideal for stationary automotive engines requiring reliable cooling system protection and temperature management."
+        },
+        {
+          title: "Mixing Recommendation",
+          description: "Advised to use one part of the concentrated fluid with two parts of water (preferably Demineralised Water) in the engine radiator coolant or as per the recommendation of OEM."
+        },
+        {
+          title: "All-Season Protection",
+          description: "Formulated to provide excellent protection in both summer and winter conditions with high boiling point and low freezing point characteristics."
+        }
+      ],
+      specifications: {
+        apiService: "Premium synthetic formulation free from harmful additives.",
+        industryStandards: "Conforms to JIS K-2234-1934 and IS: 5759-1994 standards.",
+        oemRequirements: "Compatible with OEM specifications for closed-loop cooling systems.",
+        viscosityGrades: "Concentrated coolant for mixing with water as per application requirements."
+      },
+      performanceStandards: [
+        {
+          icon: "JIS",
+          title: "JIS Standards",
+          value: "JIS K-2234-1934"
+        },
+        {
+          icon: "IS",
+          title: "Industry Standards",
+          value: "IS: 5759-1994"
+        },
+        {
+          icon: "SYNTHETIC",
+          title: "Formulation",
+          value: "Synthetic Premium"
+        },
+        {
+          icon: "SEASON",
+          title: "Protection",
+          value: "All-Season"
+        }
+      ],
+      packaging: ["210 L"],
+      customPackaging: {
+        title: "Bulk Supply Available",
+        description: "Available in concentrated form for mixing with water as per application requirements.",
+        linkText: "Contact for bulk pricing →"
+      },
+      technicalData: [
+        {
+          characteristic: "Color",
+          value: "Bluish Green"
+        },
+        {
+          characteristic: "Flash Point, °C (COC), Min.",
+          value: "155"
+        },
+        {
+          characteristic: "Freezing Point, °C",
+          value: "(-) 35"
+        },
+        {
+          characteristic: "Pour Point, °C Max.",
+          value: "(-) 15"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/radiator_coolant/EASTTO REDIATOR COOLANT  MSDS.pdf",
+        pds: "/pdfs/radiator_coolant/EASTTO RADIATOR COOLANT PDS.pdf",
+        brochure: "/pdfs/radiator_coolant/EASTTO RADIATOR COOLANT BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/radiator_coolant/Radiator Coolant.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "shock-absorber-oil": {
+      name: "EASTTO Shock Absorber Oil (Grade 12, 18)",
+      brand: "EASTTO",
+      shortDescription: "High viscosity index shock absorber oils with excellent dampening characteristics",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "SHOCK ABSORBER OILs are blended from high viscosity index oils and specially selected additives to provide excellent anti-wear, anti-rust and anti-oxidation properties. EASTTO SHOCK ABSORBER OILs have very good chemical stability, excellent seal compatibility and very low pour point (for usage over wide range of temperature variations) with excellent dampening characteristics.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Automotive Shock Absorbers",
+          description: "EASTTO SHOCK ABSORBER OILs are recommended for use in shock absorbers across various vehicle types."
+        },
+        {
+          title: "Wide Temperature Range Operation",
+          description: "Formulated with very low pour point for usage over wide range of temperature variations, ensuring consistent performance in diverse climatic conditions."
+        },
+        {
+          title: "Superior Dampening Performance",
+          description: "Designed to provide excellent dampening characteristics for optimal ride comfort and vehicle stability."
+        }
+      ],
+      specifications: {
+        apiService: "Proprietary performance level formulation.",
+        industryStandards: "Meets proprietary standards for shock absorber applications.",
+        oemRequirements: "Compatible with automotive shock absorber systems.",
+        viscosityGrades: "Available in Grade 12 and Grade 18 for different viscosity requirements."
+      },
+      performanceStandards: [
+        {
+          icon: "PROP",
+          title: "Performance Level",
+          value: "Proprietary"
+        },
+        {
+          icon: "VI",
+          title: "Viscosity Index",
+          value: "High VI"
+        },
+        {
+          icon: "TEMP",
+          title: "Temperature Range",
+          value: "Wide Range"
+        },
+        {
+          icon: "DAMP",
+          title: "Dampening",
+          value: "Excellent"
+        }
+      ],
+      packaging: ["210 L", "26 L", "20 L", "5 L", "1 L", "500 ml", "100 ml pouch"],
+      customPackaging: {
+        title: "Multiple Size Options",
+        description: "Available in various convenient sizes from industrial drums to small pouches for different application needs.",
+        linkText: "Contact for custom sizes →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity at 100°C, cSt",
+          grade12: "11.0 – 13.0",
+          grade18: "17.0 – 19.0"
+        },
+        {
+          characteristic: "Viscosity Index, Min.",
+          grade12: "45",
+          grade18: "45"
+        },
+        {
+          characteristic: "Flash Point, COC, °C, Min.",
+          grade12: "145",
+          grade18: "160"
+        },
+        {
+          characteristic: "Pour Point, °C, Max.",
+          grade12: "(-) 39",
+          grade18: "(-) 36"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/shock_absorber_oil/EASTTO SHOCK ABSORBER OILS MSDS.pdf",
+        pds: "/pdfs/shock_absorber_oil/EASTTO SHOCK ABSORBER OIL PDS.pdf",
+        brochure: "/pdfs/shock_absorber_oil/EASTTO SHOCK ABSORBER OIL BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/shock_absorber_oil/Shock Absorber Oil.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "calibration-fluids": {
+      name: "EASTTO Calibration Fluids (Type 2, 5)",
+      brand: "EASTTO",
+      shortDescription: "Simulated fuels with diesel-like properties for calibration of fuel system components",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "CALIBRATING FLUIDS 2, 5 are simulated fuels with properties similar to diesel fuel. These specially developed fluids are not only safer to use, but are formulated to meet tighter, more demanding specifications required in the manufacturing processes used by the fuel system component manufacturers when building fuel pumps, fuel injectors and fuel, air and oil filters. These fluids contain a range of special additives to enhance corrosion resistance, oxidation stability and anti-wear. EASTTO CALIBRATING FLUIDS 2, 5 are more suitable than commercially refined fuels for use in manufacturing processes due to the precisely controlled viscosity, density, higher & safer flash points and lower aromatic hydrocarbon content.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Fuel Pump Calibration",
+          description: "EASTTO CALIBRATING FLUIDS 2, 5 are recommended for the calibration of fuel pumps with precisely controlled properties for accurate testing."
+        },
+        {
+          title: "Fuel Injector Calibration",
+          description: "Ideal for calibration of fuel injectors, providing consistent performance characteristics required for manufacturing processes."
+        },
+        {
+          title: "Filter Testing and Calibration",
+          description: "Specially formulated for calibration of fuel, air and oil filters, ensuring reliable performance in manufacturing environments."
+        },
+        {
+          title: "Manufacturing Process Applications",
+          description: "More suitable than commercially refined fuels due to precisely controlled viscosity, density, higher & safer flash points and lower aromatic hydrocarbon content."
+        }
+      ],
+      specifications: {
+        apiService: "Specially formulated to meet tighter, more demanding specifications for manufacturing processes.",
+        industryStandards: "Designed for fuel system component manufacturing standards.",
+        oemRequirements: "Compatible with fuel system component manufacturer requirements.",
+        viscosityGrades: "Available in Type 2 and Type 5 with different viscosity ranges for varied calibration needs."
+      },
+      performanceStandards: [
+        {
+          icon: "SAFE",
+          title: "Safety Enhanced",
+          value: "Higher Flash Points"
+        },
+        {
+          icon: "PREC",
+          title: "Precision Control",
+          value: "Controlled Properties"
+        },
+        {
+          icon: "CORR",
+          title: "Corrosion Resistance",
+          value: "Enhanced Protection"
+        },
+        {
+          icon: "STAB",
+          title: "Oxidation Stability",
+          value: "Superior Stability"
+        }
+      ],
+      packaging: ["210 L", "50 L", "20 L", "5 L", "1 L"],
+      customPackaging: {
+        title: "Manufacturing Grade Packaging",
+        description: "Available in precise volumes for manufacturing and calibration applications with consistent quality control.",
+        linkText: "Contact for bulk manufacturing orders →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity at 40°C, cSt",
+          type2: "1.98 - 2.42",
+          type5: "4.14 – 5.06"
+        },
+        {
+          characteristic: "Flash Point, PMCC, °C, Min.",
+          type2: "75",
+          type5: "130"
+        },
+        {
+          characteristic: "Pour Point, °C, Max.",
+          type2: "(-) 6",
+          type5: "(-) 6"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/calibration_fluids/EASTTO CALLIBRATION OIL MSDS.pdf",
+        pds: "/pdfs/calibration_fluids/EASTTO CALIBRATION FLUIDS PDS.pdf",
+        brochure: "/pdfs/calibration_fluids/CALIBRATION FLUIDS BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/calibration_fluids/Calibration Fluids orign.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "ultra-tc-engine-oils": {
+      name: "EASTTO Ultra TC Engine Oils (10W, 30, 40, 50)",
+      brand: "EASTTO",
+      shortDescription: "Heavy duty diesel engine oils for turbocharged engines with superior performance under severe conditions",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "EASTTO Ultra TC 10W, 30, 40, 50 are heavy duty diesel engine oils blended from highly refined base stocks and selected additives, and they have high level of detergency, excellent thermal and oxidation stability with superior performance under severe conditions.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Turbocharged Diesel Engines",
+          description: "EASTTO Ultra TC 10W, 30, 40, 50 are recommended for turbocharged diesel engines of heavy duty commercial vehicles."
+        },
+        {
+          title: "Earth Moving Equipment",
+          description: "Specially formulated for earth moving equipment requiring superior lubrication under severe operating conditions."
+        },
+        {
+          title: "Multi Utility Vehicles",
+          description: "Ideal for multi utility vehicles that demand high-performance diesel engine oils with excellent thermal stability."
+        },
+        {
+          title: "Heavy Duty Commercial Applications",
+          description: "Designed for heavy duty commercial vehicles operating under demanding conditions with superior detergency and oxidation stability."
+        }
+      ],
+      specifications: {
+        apiService: "Meets API CD performance standards for heavy duty diesel engine applications.",
+        industryStandards: "Conforms to IS: 13656-2014.",
+        oemRequirements: "Complies with EDL-2 performance levels.",
+        viscosityGrades: "Available in 10W, 30, 40, and 50 grades to suit different operating conditions and engine requirements."
+      },
+      performanceStandards: [
+        {
+          icon: "API",
+          title: "API Standards",
+          value: "API CD"
+        },
+        {
+          icon: "IS",
+          title: "Industry Standards",
+          value: "IS: 13656-2014"
+        },
+        {
+          icon: "EDL",
+          title: "Fleet Requirements",
+          value: "EDL-2"
+        },
+        {
+          icon: "TURBO",
+          title: "Engine Type",
+          value: "Turbocharged"
+        }
+      ],
+      packaging: ["210 L", "50 L", "26 L", "20 L", "1 L", "900 ml"],
+      customPackaging: {
+        title: "Heavy Duty Packaging",
+        description: "Available in various sizes from industrial drums to convenient small packs for different commercial applications.",
+        linkText: "Contact for bulk commercial orders →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity at 100°C, cSt",
+          "10w": "5 Min.",
+          "30": "10.0 – 12.0",
+          "40": "13.0 – 15.0",
+          "50": "18.0 – 20.0"
+        },
+        {
+          characteristic: "Viscosity Index, Min.",
+          "10w": "100",
+          "30": "90",
+          "40": "90",
+          "50": "90"
+        },
+        {
+          characteristic: "Flash Point, COC, °C, Min.",
+          "10w": "220",
+          "30": "220",
+          "40": "220",
+          "50": "220"
+        },
+        {
+          characteristic: "TBN, mg KOH / gm",
+          "10w": "9.0 – 11.0",
+          "30": "9.0 – 11.0",
+          "40": "9.0 – 11.0",
+          "50": "9.0 – 11.0"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/ultra_tc_engine_oils/EASTTO ULTRA TC OILS MSDS.pdf",
+        pds: "/pdfs/ultra_tc_engine_oils/EASTTO ULTRA TC PDS.pdf",
+        brochure: "/pdfs/ultra_tc_engine_oils/EASTTO ULTRA TC BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/ultra_tc_engine_oils/Ultra TC Engine Oils.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "supreme-4t-engine-oil": {
+      name: "EASTTO Supreme 4T Engine Oil (20W-40, 20W-50)",
+      brand: "EASTTO",
+      shortDescription: "High performance multigrade 4-stroke engine oils for air-cooled two wheelers with excellent oxidation stability",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "EASTTO SUPREME 4T 20W-40, 4T 20W-50 are high performance multigrade 4 Stroke Engine oils that are blended from highly refined base stocks and specially selected additives to meet the high temperature operating conditions in air cooled 4 Stroke two wheelers with excellent oxidation stability and, control the sludge and varnish formations. These 4 Stroke Engine oils also provide protection against wear, long engine life, higher fuel efficiency and outstanding engine cleanness.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "4-Stroke Motorcycles",
+          description: "EASTTO SUPREME 4T 20W-40, 4T 20W-50 are recommended as multipurpose engine oils for the lubrication of 4 Stroke two wheelers of all models of Motor Cycles."
+        },
+        {
+          title: "4-Stroke Scooters",
+          description: "Specially formulated for 4-stroke scooters operating on petrol, providing excellent protection against wear and long engine life."
+        },
+        {
+          title: "Auto Rickshaws",
+          description: "Ideal for Auto rickshaws operating on Petrol and CNG/LPG, ensuring higher fuel efficiency and outstanding engine cleanness."
+        },
+        {
+          title: "High Temperature Operations",
+          description: "Designed to meet the high temperature operating conditions in air cooled 4 Stroke two wheelers with superior oxidation stability."
+        }
+      ],
+      specifications: {
+        apiService: "Meets API SL performance standards for gasoline engine applications.",
+        industryStandards: "Conforms to JASO T 903 (MA2 Specification).",
+        oemRequirements: "Complies with API SL / JASO T 903 (MA2 Specification) performance levels.",
+        viscosityGrades: "Available in 20W-40 and 20W-50 multigrade formulations for different operating conditions."
+      },
+      performanceStandards: [
+        {
+          icon: "API",
+          title: "API Standards",
+          value: "API SL"
+        },
+        {
+          icon: "JASO",
+          title: "JASO Standards",
+          value: "JASO T 903 (MA2)"
+        },
+        {
+          icon: "4T",
+          title: "Engine Type",
+          value: "4-Stroke"
+        },
+        {
+          icon: "MULTI",
+          title: "Fuel Compatibility",
+          value: "Petrol/CNG/LPG"
+        }
+      ],
+      packaging: ["210 L", "50 L", "26 L", "20 L", "1 L"],
+      customPackaging: {
+        title: "Two Wheeler Packaging",
+        description: "Available in convenient sizes optimized for two wheeler applications and service centers.",
+        linkText: "Contact for dealer packaging →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity at 100°C, cSt",
+          "20w40": "15",
+          "20w50": "17"
+        },
+        {
+          characteristic: "Flash Point, COC, °C, Min.",
+          "20w40": "200",
+          "20w50": "200"
+        },
+        {
+          characteristic: "TBN, mg KOH / gm",
+          "20w40": "6.0",
+          "20w50": "6.0"
+        },
+        {
+          characteristic: "Pour Point, °C, Max.",
+          "20w40": "(-) 21",
+          "20w50": "(-) 21"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/supreme_4t_engine_oil/EASTTO SUPREME 4T  MSDS.pdf",
+        pds: "/pdfs/supreme_4t_engine_oil/EASTTO SUPREME 4T PDS.pdf",
+        brochure: "/pdfs/supreme_4t_engine_oil/EASTTO SUPREME 4T BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/supreme_4t_engine_oil/Supreme 4T Engine Oils.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "rio-engine-oil": {
+      name: "EASTTO Rio Engine Oil (SAE 30, 40)",
+      brand: "EASTTO",
+      shortDescription: "Preservation-cum running-in engine oil for automobile industries with excellent wear and rust control",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "Rio Engine Oil SAE 30 & 40 are suitable for preservation-cum running-in oil and also as engine oil for driving away the chassis. They have excellent wear and rust control with superior performance.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Preservation and Running-in Oil",
+          description: "Rio Engine Oil SAE 30 & 40 are used mainly as \"Preservation and Running-in-oil\" for the Automobile Industries."
+        },
+        {
+          title: "Export Engine Protection",
+          description: "Can be used for engines scheduled for export where time lag between production of engines and use by the customers is quite significant."
+        },
+        {
+          title: "Pre-Sale Engine Fill",
+          description: "Ideal as fill oil prior to sale and protect the engine parts from sea water during shipment and storage."
+        },
+        {
+          title: "Chassis Drive-Away Operations",
+          description: "Suitable as engine oil for driving away the chassis with excellent wear and rust control properties."
+        }
+      ],
+      specifications: {
+        apiService: "Meets API CD performance standards for diesel engine applications.",
+        industryStandards: "Conforms to IS: 13656-2014.",
+        oemRequirements: "Complies with EDL-2 performance levels.",
+        viscosityGrades: "Available in SAE 30 and SAE 40 grades for different preservation and running-in requirements."
+      },
+      performanceStandards: [
+        {
+          icon: "API",
+          title: "API Standards",
+          value: "API CD"
+        },
+        {
+          icon: "IS",
+          title: "Industry Standards",
+          value: "IS: 13656-2014"
+        },
+        {
+          icon: "EDL",
+          title: "Fleet Requirements",
+          value: "EDL-2"
+        },
+        {
+          icon: "PRESERVE",
+          title: "Application Type",
+          value: "Preservation & Running-in"
+        }
+      ],
+      packaging: ["210 L", "5 L", "1 L"],
+      customPackaging: {
+        title: "Industrial Packaging",
+        description: "Available in convenient sizes optimized for automobile industry preservation and running-in applications.",
+        linkText: "Contact for industrial packaging →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity at 100°C, cSt",
+          sae30: "11.5",
+          sae40: "14.5"
+        },
+        {
+          characteristic: "Flash Point, COC, °C",
+          sae30: "230",
+          sae40: "230"
+        },
+        {
+          characteristic: "TBN, mg KOH / gm",
+          sae30: "10.5",
+          sae40: "10.5"
+        },
+        {
+          characteristic: "Pour Point, °C, Max.",
+          sae30: "(-) 6",
+          sae40: "(-) 6"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/rio_engine_oil/EASTTO RIO MSDS.pdf",
+        pds: "/pdfs/rio_engine_oil/EASTTO RIO PDS.pdf",
+        brochure: "/pdfs/rio_engine_oil/EASTTO RIO BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/rio_engine_oil/Rio Engine Oil SAE 30 & 40.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "ready-kool": {
+      name: "EASTTO Ready Kool",
+      brand: "EASTTO",
+      shortDescription: "Premium quality premixed synthetic radiator coolant for automotive cooling systems",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "READY KOOL is a premium quality premixed (ready to use) synthetic radiator coolant which is free from amines, borates, silicates and phosphates. It takes care of engine blocks and radiator from rust and corrosion. It has good chemical stability and protects non-metallic components of engine radiator, like gaskets and hoses. It exhibits high boiling point and low freezing point to take care of summer and winter.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Mobile Automotive Engines",
+          description: "EASTTO READY KOOL is recommended for use in mobile automotive engines having closed loop coolant circulation systems."
+        },
+        {
+          title: "Stationary Automotive Engines",
+          description: "Ideal for stationary automotive engines requiring reliable cooling system protection with ready-to-use convenience."
+        },
+        {
+          title: "Ready-to-Use Convenience",
+          description: "Premixed synthetic coolant eliminates the need for dilution, providing immediate protection for engine blocks and radiators."
+        },
+        {
+          title: "All-Season Protection",
+          description: "Formulated to provide excellent protection in both summer and winter conditions with high boiling point and low freezing point characteristics."
+        }
+      ],
+      specifications: {
+        apiService: "Premium synthetic formulation free from harmful additives (amines, borates, silicates, phosphates).",
+        industryStandards: "Conforms to JIS K-2234-1934 and IS: 5759-2006 standards.",
+        oemRequirements: "Compatible with closed-loop cooling systems for automotive applications.",
+        viscosityGrades: "Ready-to-use premixed formulation requiring no dilution."
+      },
+      performanceStandards: [
+        {
+          icon: "JIS",
+          title: "JIS Standards",
+          value: "JIS K-2234-1934"
+        },
+        {
+          icon: "IS",
+          title: "Industry Standards",
+          value: "IS: 5759-2006"
+        },
+        {
+          icon: "PREMIX",
+          title: "Formulation",
+          value: "Ready-to-Use Premixed"
+        },
+        {
+          icon: "SEASON",
+          title: "Protection",
+          value: "All-Season"
+        }
+      ],
+      packaging: ["210 L"],
+      customPackaging: {
+        title: "Ready-to-Use Supply",
+        description: "Available in premixed form for immediate use without dilution requirements.",
+        linkText: "Contact for bulk ready-to-use supply →"
+      },
+      technicalData: [
+        {
+          characteristic: "Colour",
+          value: "Bluish Green"
+        },
+        {
+          characteristic: "Boiling Point, °C, Min.",
+          value: "105"
+        },
+        {
+          characteristic: "Freezing Point, °C",
+          value: "(-) 15"
+        },
+        {
+          characteristic: "Freezing Point, %",
+          value: "70"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/ready_kool/EASTTO READY KOOL MSDS.pdf",
+        pds: "/pdfs/ready_kool/EASTTO READY KOOL PDS.pdf",
+        brochure: "/pdfs/ready_kool/EASTTO READY KOOL BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/ready_kool/Ready Kool.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "multigrad-oil": {
+      name: "EASTTO Multigrade Oil (10W-30, 20W-40, 20W-50)",
+      brand: "EASTTO",
+      shortDescription: "High viscosity index multigrade engine oils for gasoline and diesel engines with all-season performance",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "MULTIGRADE 10W-30, 20W-40, 20W-50 are blended from highly refined base stocks and specially selected additives to meet special characteristics and performance levels, like excellent thermal and oxidation stability, protection against rust, corrosion and wear. They have very high viscosity index to provide ease in starting and ensure adequate oil film thickness at extreme temperature to eliminate seasonal oil changes, reduce oil consumption, and keep the engine clean.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Gasoline Engines",
+          description: "EASTTO MULTIGRADE 10W-30, 20W-40, 20W-50 oils are recommended for use in gasoline engines operating over wide range of temperatures throughout the year."
+        },
+        {
+          title: "Diesel Engines",
+          description: "Specially formulated for diesel engines requiring multigrade protection with excellent thermal and oxidation stability."
+        },
+        {
+          title: "All-Season Operation",
+          description: "High viscosity index formulation provides ease in starting and ensures adequate oil film thickness at extreme temperatures to eliminate seasonal oil changes."
+        },
+        {
+          title: "Wide Temperature Range",
+          description: "Designed for engines operating over wide temperature ranges throughout the year with reduced oil consumption and enhanced engine cleanliness."
+        }
+      ],
+      specifications: {
+        apiService: "Meets API CC/SC performance standards for gasoline and diesel engine applications.",
+        industryStandards: "Conforms to MIL-L-2104 B and IS: 13656-2014 standards.",
+        oemRequirements: "Complies with E-PL1/E-DL1 performance levels.",
+        viscosityGrades: "Available in 10W-30, 20W-40, and 20W-50 multigrade formulations for different operating conditions."
+      },
+      performanceStandards: [
+        {
+          icon: "API",
+          title: "API Standards",
+          value: "API CC/SC"
+        },
+        {
+          icon: "MIL",
+          title: "Military Standards",
+          value: "MIL-L-2104 B"
+        },
+        {
+          icon: "IS",
+          title: "Industry Standards",
+          value: "IS: 13656-2014"
+        },
+        {
+          icon: "EPL",
+          title: "Fleet Requirements",
+          value: "E-PL1/E-DL1"
+        }
+      ],
+      packaging: ["210 L"],
+      customPackaging: {
+        title: "Multigrade Supply",
+        description: "Available in drum packaging for commercial and industrial multigrade engine oil requirements.",
+        linkText: "Contact for multigrade supply →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity at 100°C, cSt",
+          "10w30": "12.0",
+          "20w40": "14",
+          "20w50": "18"
+        },
+        {
+          characteristic: "Flash Point, COC, °C, Min.",
+          "10w30": "190",
+          "20w40": "200",
+          "20w50": "200"
+        },
+        {
+          characteristic: "TBN, mg KOH / gm",
+          "10w30": "6.0",
+          "20w40": "6.0",
+          "20w50": "6.0"
+        },
+        {
+          characteristic: "Pour Point, °C",
+          "10w30": "(-) 24",
+          "20w40": "(-) 21",
+          "20w50": "(-) 21"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/multigrad_oil/EASTTO MULTIGRADE OILS MSDS.pdf",
+        pds: "/pdfs/multigrad_oil/EASTTO MULTIGRADE PDS.pdf",
+        brochure: "/pdfs/multigrad_oil/EASTTO MULTIGRADE BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/multigrad_oil/Multigrade 10w-30, 20w-40, 20w-50.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "gem-15w40": {
+      name: "EASTTO GEM 15W-40",
+      brand: "EASTTO",
+      shortDescription: "Premium quality diesel engine oil with excellent detergent-dispersant properties for heavy duty applications",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "EASTTO GEM 15W-40 is premium quality diesel engine oil. It is formulated from highly refined base stocks and superior quality additives for high viscosity index and excellent detergent-dispersant inhibition to keep engine clean, prevent oil degradation / thickening and corrosive wear. It is also provide long draining periods, extended TBN retention and reduced oil consumption with better fuel economy.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Diesel Passenger Cars",
+          description: "It is recommended for diesel passenger cars requiring premium quality engine oil with excellent detergent-dispersant properties."
+        },
+        {
+          title: "Commercial Heavy Duty Diesel Engines",
+          description: "Specially formulated for commercial heavy duty diesel engines on-highway and off-highway equipment."
+        },
+        {
+          title: "Industrial Equipment",
+          description: "Ideal for mining, earthmoving, construction industry and DG sets requiring long draining periods and extended TBN retention."
+        },
+        {
+          title: "Gasoline Engines",
+          description: "Also suitable for gasoline engines where API CI-4 performance level is required with better fuel economy."
+        }
+      ],
+      specifications: {
+        apiService: "Meets API CI-4 performance standards for advanced diesel engine applications.",
+        industryStandards: "Formulated to meet premium diesel engine oil requirements.",
+        oemRequirements: "Complies with API CI-4 performance levels for heavy duty applications.",
+        viscosityGrades: "15W-40 multigrade formulation for optimal performance across temperature ranges."
+      },
+      performanceStandards: [
+        {
+          icon: "API",
+          title: "API Standards",
+          value: "API CI-4"
+        },
+        {
+          icon: "PREMIUM",
+          title: "Quality Level",
+          value: "Premium Diesel"
+        },
+        {
+          icon: "DETERGENT",
+          title: "Detergent Properties",
+          value: "Excellent"
+        },
+        {
+          icon: "ECONOMY",
+          title: "Fuel Economy",
+          value: "Enhanced"
+        }
+      ],
+      packaging: ["210 L"],
+      customPackaging: {
+        title: "Heavy Duty Supply",
+        description: "Available in drum packaging for heavy duty diesel engine applications with extended drain intervals.",
+        linkText: "Contact for commercial supply →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity at 100°C, cSt",
+          value: "14.0"
+        },
+        {
+          characteristic: "Flash Point, COC, °C, Min.",
+          value: "210"
+        },
+        {
+          characteristic: "TBN, mg KOH / gm",
+          value: "10.5"
+        },
+        {
+          characteristic: "Pour Point, °C",
+          value: "(-) 21"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/gem_15w_40/EASTTO GEM 15W-40 CI4 MSDS.pdf",
+        pds: "/pdfs/gem_15w_40/EASTTO GEM CI4 PDS.pdf",
+        brochure: "/pdfs/gem_15w_40/EASTTO GEM 15W-40 CI4 BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/gem_15w_40/GEM 15W-40.mp4",
+        poster: "/engine-oil-hero.jpg"
+      }
+    },
+
+    "brake-fluid": {
+      name: "EASTTO Brake Fluid DOT 3",
+      brand: "EASTTO",
+      shortDescription: "High performance premium quality fully synthetic heavy duty hydraulic brake fluid",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/products/automotive.jpg",
+      introduction: "BRAKE FLUID DOT 3 is a red dyed high performance premium quality fully synthetic heavy duty hydraulic brake fluid. It contains anti-oxidant, metal de-activator and corrosion inhibitor for long service life of brake fluid and brake components. Due to its high Equilibrium Reflux Boiling Point (above 205ºC), the vapour locking problem is greatly reduced in high temperature operating condition, especially in cities where stop-and -go conditions require frequent application of brakes. Its excellent low temperature characteristics enable it to function up to minus 40ºC.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Modern Hydraulic Braking Systems",
+          description: "EASTTO BRAKE FLUID DOT 3 is recommended for modern hydraulic braking systems including both disc and drum type."
+        },
+        {
+          title: "High Temperature Operations",
+          description: "Specially formulated for high temperature operating conditions, especially in cities where stop-and-go conditions require frequent application of brakes."
+        },
+        {
+          title: "Disc Brake Systems",
+          description: "Ideal for disc brake systems requiring high performance brake fluid with excellent thermal stability and vapor lock resistance."
+        },
+        {
+          title: "Drum Brake Systems",
+          description: "Suitable for drum brake systems with excellent low temperature characteristics enabling function up to minus 40°C."
+        }
+      ],
+      specifications: {
+        apiService: "Meets FMVSS 116 DOT-3 federal motor vehicle safety standards.",
+        industryStandards: "Conforms to SAE J 1703 and IS: 8654-2001 standards.",
+        oemRequirements: "Complies with DOT-3 performance levels for hydraulic brake systems.",
+        viscosityGrades: "Fully synthetic formulation with optimized viscosity characteristics for wide temperature range operation."
+      },
+      performanceStandards: [
+        {
+          icon: "DOT",
+          title: "DOT Standards",
+          value: "FMVSS 116 DOT-3"
+        },
+        {
+          icon: "SAE",
+          title: "SAE Standards",
+          value: "SAE J 1703"
+        },
+        {
+          icon: "IS",
+          title: "Industry Standards",
+          value: "IS: 8654-2001"
+        },
+        {
+          icon: "SYNTHETIC",
+          title: "Formulation",
+          value: "Fully Synthetic"
+        }
+      ],
+      packaging: ["210 L"],
+      customPackaging: {
+        title: "Brake Fluid Supply",
+        description: "Available in drum packaging for automotive service centers and brake system applications.",
+        linkText: "Contact for brake fluid supply →"
+      },
+      technicalData: [
+        {
+          characteristic: "Colour",
+          value: "Red"
+        },
+        {
+          characteristic: "Kinematic Viscosity at 100°C, cSt",
+          value: "2.2"
+        },
+        {
+          characteristic: "Kinematic Viscosity at (-) 40°C, cSt",
+          value: "1500"
+        },
+        {
+          characteristic: "Equilibrium Reflux Boiling Point, °C, Max.",
+          value: "205"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/brake_fluid/EASTTO BRAKE FLUID DOT 3 MSDS.pdf",
+        pds: "/pdfs/brake_fluid/EASTTO BRAKE FLUID DOT 3 PDS.pdf",
+        brochure: "/pdfs/brake_fluid/BRAKE FLUID DOT 3 BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/brake_fluid/Brake Fluid DOT.mp4",
         poster: "/engine-oil-hero.jpg"
       }
     }
     // Additional products can be added here following the same structure
+  },
+  industrial: {
+    "hydraulic-oils-r-o": {
+      name: "Hydraulic Oils R & O",
+      brand: "EASTTO",
+      shortDescription: "High-quality hydraulic oils for rust and oxidation protection",
+      heroImage: "/factory-1.jpg",
+      fallbackImage: "/images/warehouse-storage.jpg",
+      introduction: "Our Hydraulic Oils R & O series provides excellent rust and oxidation protection for hydraulic systems operating under moderate conditions. These oils are formulated with high-quality base stocks and carefully selected additives to ensure optimal performance and equipment protection.",
+      sectionTitles: {
+        overview: "Product Information",
+        applications: "Industrial Applications",
+        performanceStandards: "Quality Standards",
+        technicalSpecs: "Technical Properties",
+        packaging: "Available Sizes",
+        resources: "Downloads & Information"
+      },
+      applications: [
+        {
+          title: "Mobile Hydraulic Equipment",
+          description: "Suitable for hydraulic systems in construction equipment, agricultural machinery, and mobile platforms."
+        },
+        {
+          title: "Industrial Hydraulic Systems",
+          description: "Ideal for stationary hydraulic systems in manufacturing and processing facilities."
+        }
+      ],
+      performanceStandards: [
+        {
+          icon: "ISO",
+          title: "ISO Standards",
+          value: "ISO 11158 HH"
+        },
+        {
+          icon: "DIN",
+          title: "DIN Standards",
+          value: "DIN 51524 Part 1"
+        }
+      ],
+      packaging: ["208 L", "50 L", "20 L", "10 L", "5 L"],
+      customPackaging: {
+        title: "Bulk Supply Available",
+        description: "We provide bulk supply options for large industrial operations.",
+        linkText: "Inquire about bulk pricing →"
+      }
+    }
   }
   // Additional categories can be added here
 };
 
 // Category display names for navigation
-export const  categoryNames = {
+export const categoryNames = {
   automotive: "Automotive Oils",
   industrial: "Industrial Oils",
   specialty: "Specialty Lubricants",
@@ -392,6 +2036,35 @@ export const  categoryNames = {
   defence: "Defence Products",
   emulsifiers: "Emulsifiers",
   larvicidal: "Mosquito Larvicidal Oil"
+};
+
+// Default section titles - used when not specified in product data
+export const defaultSectionTitles = {
+  overview: "Product Overview",
+  applications: "Applications",
+  performanceStandards: "Performance Standards",
+  technicalSpecs: "Technical Specifications",
+  packaging: "Packaging Options",
+  resources: "Product Resources"
+};
+
+// Category fallback images - used when product doesn't have heroImage or fallbackImage
+export const categoryFallbackImages = {
+  automotive: "/products/automotive.jpg",
+  industrial: "/images/warehouse-storage.jpg",
+  specialty: "/images/production-equipment.jpg",
+  marine: "/images/branded-storage-tanks.jpg",
+  textile: "/images/manufacturing-facility.jpg",
+  waxes: "/images/office-interior.jpg",
+  grease: "/images/product-inventory.jpg",
+  metalworking: "/engine-oil-hero.jpg", // Default fallback
+  solvents: "/engine-oil-hero.jpg",
+  baseoils: "/engine-oil-hero.jpg",
+  additives: "/engine-oil-hero.jpg",
+  sulphonates: "/engine-oil-hero.jpg",
+  defence: "/engine-oil-hero.jpg",
+  emulsifiers: "/engine-oil-hero.jpg",
+  larvicidal: "/engine-oil-hero.jpg"
 };
 
 export default productCategories;
