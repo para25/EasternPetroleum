@@ -112,7 +112,7 @@ const productCategories = [
       "Hydraulic Oils Anti Wear Type",
       "Hydraulic Oils HLP",
       "Hydraulic Oils HVI",
-      "Hydraulic Oils HLP ZF",
+      // "Hydraulic Oils HLP ZF",
       "Refrigeration Oils",
       "Compressor Oil",
       "Sugar Mill Oils",
@@ -469,7 +469,7 @@ export const detailedProductData = {
         title: "Custom Packaging",
         description: "We offer custom packaging solutions for bulk orders and specific requirements.",
         linkText: "Contact for custom sizes →"
-      },      technicalData: [
+      }, technicalData: [
         {
           characteristic: "Kinematic Viscosity at 100°C, cSt",
           value: "14.5 - 16.0"
@@ -1971,48 +1971,773 @@ export const detailedProductData = {
     // Additional products can be added here following the same structure
   },
   industrial: {
-    "hydraulic-oils-r-o": {
-      name: "Hydraulic Oils R & O",
+    "turbine-oils": {
+      name: "Turbine Oil (Grades 32, 46, 57, 68, 76)",
       brand: "EASTTO",
-      shortDescription: "High-quality hydraulic oils for rust and oxidation protection",
-      heroImage: "/factory-1.jpg",
-      fallbackImage: "/images/warehouse-storage.jpg",
-      introduction: "Our Hydraulic Oils R & O series provides excellent rust and oxidation protection for hydraulic systems operating under moderate conditions. These oils are formulated with high-quality base stocks and carefully selected additives to ensure optimal performance and equipment protection.",
+      shortDescription: "High-performance turbine oils for steam, gas and hydraulic turbines",
+      heroImage: "/turbine-oil-hero.jpg",
+      fallbackImage: "/products/industrial.jpg", // Category-specific fallback
+      introduction: "These oils are blended from highly refined turbine base stocks containing antioxidant, rust inhibitor and antifoam additives. They have excellent thermal stability and demulsibility, ensuring reliable performance in demanding turbine applications.",
       sectionTitles: {
-        overview: "Product Information",
-        applications: "Industrial Applications",
-        performanceStandards: "Quality Standards",
-        technicalSpecs: "Technical Properties",
-        packaging: "Available Sizes",
-        resources: "Downloads & Information"
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
       },
       applications: [
         {
-          title: "Mobile Hydraulic Equipment",
-          description: "Suitable for hydraulic systems in construction equipment, agricultural machinery, and mobile platforms."
+          title: "Steam Turbines",
+          description: "Specially formulated for lubrication of steam turbines, providing excellent thermal stability and protection against oxidation under high-temperature conditions."
         },
         {
-          title: "Industrial Hydraulic Systems",
-          description: "Ideal for stationary hydraulic systems in manufacturing and processing facilities."
+          title: "Gas Turbines",
+          description: "Ideal for gas turbine applications, offering superior demulsibility and resistance to foam formation while maintaining consistent performance."
+        },
+        {
+          title: "Hydraulic Turbines",
+          description: "Recommended for hydraulic turbine lubrication, delivering reliable protection and extended service life in water-exposed environments."
         }
       ],
+      specifications: {
+        indianStandards: "Meets IS-489-1983 Specifications and BIS-1012-1987 (Reaffirmed 1993) standards.",
+        internationalStandards: "Complies with General Electric GEK 27070 Specification and KWU (Siemens) W. Germany standards.",
+        viscosityGrades: "Available in grades 32, 46, 57, 68, and 76 to meet diverse turbine requirements.",
+        additivePackage: "Contains antioxidant, rust inhibitor, and antifoam additives for comprehensive protection."
+      },
       performanceStandards: [
         {
-          icon: "ISO",
-          title: "ISO Standards",
-          value: "ISO 11158 HH"
+          icon: "IS",
+          title: "Indian Standards",
+          value: "IS-489-1983, BIS-1012-1987"
         },
+        {
+          icon: "GE",
+          title: "General Electric",
+          value: "GEK 27070"
+        },
+        {
+          icon: "KWU",
+          title: "Siemens KWU",
+          value: "W. Germany Standard"
+        },
+        {
+          icon: "GRADES",
+          title: "Viscosity Grades",
+          value: "32, 46, 57, 68, 76"
+        }
+      ],
+      packaging: ["210 L", "26 L", "20 L"],
+      customPackaging: {
+        title: "Custom Packaging",
+        description: "We offer custom packaging solutions for bulk orders and specific industrial requirements.",
+        linkText: "Contact for custom sizes →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity @ 40°C, cSt",
+          grade32: "30-34",
+          grade46: "44-48",
+          grade57: "54-60",
+          grade68: "66-70",
+          grade76: "74-78"
+        },
+        {
+          characteristic: "Viscosity Index, Min.",
+          grade32: "100",
+          grade46: "100",
+          grade57: "98",
+          grade68: "98",
+          grade76: "98"
+        },
+        {
+          characteristic: "Flash Point, °C (COC), Min.",
+          grade32: "200",
+          grade46: "200",
+          grade57: "210",
+          grade68: "210",
+          grade76: "220"
+        },
+        {
+          characteristic: "Pour Point, °C, Max.",
+          grade32: "-9",
+          grade46: "-9",
+          grade57: "-9",
+          grade68: "-9",
+          grade76: "-9"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/2.Industry Oils/Turbine Oils/MSDS.pdf",
+        pds: "/pdfs/2.Industry Oils/Turbine Oils/PDS.pdf",
+        brochure: "/pdfs/2.Industry Oils/Turbine Oils/BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/2.Industry Oils/Turbine Oils/Video.mp4",
+        poster: "/turbine-oil-hero.jpg"
+      }
+    },
+    "hydraulic-oils-r-o": {
+      name: "Hydraulic Oil R & O (Grades 32, 46, 57, 68, 81, 100, 150)",
+      brand: "EASTTO",
+      shortDescription: "Advanced hydraulic oils for circulating and hydraulic transmission systems",
+      heroImage: "/hydraulic-oil-r-o-hero.jpg",
+      fallbackImage: "/products/industrial.jpg", // Category-specific fallback
+      introduction: "EASTTO HYDRAULIC OILS R & O are specially developed for circulating and hydraulic transmission systems, and are manufactured from highly refined base stocks with high viscosity index. These oils are fortified with anti-oxidant, anti-corrosion, anti-wear, anti-rust and antifoam additives to ensure optimal performance and protection.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Moderate Hydraulic Systems",
+          description: "Specially formulated for moderate hydraulic systems, providing excellent anti-wear protection and maintaining consistent performance across varying operating conditions."
+        },
+        {
+          title: "Industrial Circulating Systems",
+          description: "Ideal for a wide variety of circulating systems in industrial equipment, offering superior anti-oxidant and anti-corrosion properties for extended service life."
+        },
+        {
+          title: "Hydraulic Transmission Systems",
+          description: "Recommended for hydraulic transmission applications, delivering reliable lubrication with enhanced anti-rust and antifoam characteristics."
+        }
+      ],
+      specifications: {
+        baseStock: "Manufactured from highly refined base stocks with high viscosity index for superior performance.",
+        additivePackage: "Fortified with anti-oxidant, anti-corrosion, anti-wear, anti-rust and antifoam additives.",
+        viscosityGrades: "Available in grades 32, 46, 57, 68, 81, 100, and 150 to meet diverse hydraulic system requirements.",
+        systemCompatibility: "Suitable for moderate hydraulic systems and wide variety of circulating systems."
+      },
+      performanceStandards: [
+        {
+          icon: "ANTI_WEAR",
+          title: "Anti-Wear Protection",
+          value: "Advanced Additive Package"
+        },
+        {
+          icon: "VISCOSITY",
+          title: "Viscosity Index",
+          value: "High VI Base Stocks"
+        },
+        {
+          icon: "CORROSION",
+          title: "Corrosion Protection",
+          value: "Anti-Corrosion & Anti-Rust"
+        },
+        {
+          icon: "GRADES",
+          title: "Viscosity Grades",
+          value: "32, 46, 57, 68, 81, 100, 150"
+        }
+      ],
+      packaging: ["210 L", "26 L", "20 L", "5 L", "1 L"],
+      customPackaging: {
+        title: "Custom Packaging",
+        description: "We offer custom packaging solutions for bulk orders and specific industrial requirements.",
+        linkText: "Contact for custom sizes →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity @ 40°C, cSt",
+          grade32: "32",
+          grade46: "46",
+          grade57: "57",
+          grade68: "68",
+          grade81: "81",
+          grade100: "100",
+          grade150: "150"
+        },
+        {
+          characteristic: "Viscosity Index, Min.",
+          grade32: "95",
+          grade46: "95",
+          grade57: "95",
+          grade68: "95",
+          grade81: "95",
+          grade100: "95",
+          grade150: "95"
+        },
+        {
+          characteristic: "Flash Point (COC), °C, Min.",
+          grade32: "190",
+          grade46: "210",
+          grade57: "210",
+          grade68: "210",
+          grade81: "210",
+          grade100: "220",
+          grade150: "220"
+        },
+        {
+          characteristic: "Pour Point, °C, Max.",
+          grade32: "-6",
+          grade46: "-6",
+          grade57: "-6",
+          grade68: "-6",
+          grade81: "-6",
+          grade100: "-6",
+          grade150: "-6"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/2.Industry Oils/Hydraulic Oils R & O/MSDS.pdf",
+        pds: "/pdfs/2.Industry Oils/Hydraulic Oils R & O/PDS.pdf",
+        brochure: "/pdfs/2.Industry Oils/Hydraulic Oils R & O/BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/2.Industry Oils/Hydraulic Oils R & O/Video.mp4",
+        poster: "/hydraulic-oil-r-o-hero.jpg"
+      }
+    },
+    "hydraulic-oils-anti-wear-type": {
+      name: "Hydraulic Oil AW (Grades 32, 46, 57, 68, 81, 100, 150)",
+      brand: "EASTTO",
+      shortDescription: "Anti-wear hydraulic oils for high-pressure systems and high-speed pumps",
+      heroImage: "/hydraulic-oil-aw-hero.jpg",
+      fallbackImage: "/products/industrial.jpg", // Category-specific fallback
+      introduction: "Hydraulic Oils AW are blended from highly refined base stocks have high demulsibility index and specially selected anti-oxidant, anti-corrosion, anti-wear, anti-rust and antifoam additives. These oils can sustain very high pressure of the system and high speed of the pumps, and compatible with the seals normally used in the hydraulic system.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "High-Pressure Hydraulic Systems",
+          description: "Specially formulated to sustain very high pressure systems, providing excellent anti-wear protection and maintaining performance under extreme operating conditions."
+        },
+        {
+          title: "High-Speed Pump Applications",
+          description: "Ideal for high-speed pump operations, offering superior lubrication and protection while maintaining compatibility with standard hydraulic seals."
+        },
+        {
+          title: "Industrial Hydraulic & Circulation Systems",
+          description: "Recommended for long service life applications in a wide variety of industrial hydraulic and circulation systems requiring reliable performance."
+        }
+      ],
+      specifications: {
+        baseStock: "Blended from highly refined base stocks with high demulsibility index for superior performance.",
+        additivePackage: "Specially selected anti-oxidant, anti-corrosion, anti-wear, anti-rust and antifoam additives.",
+        viscosityGrades: "Available in grades 32, 46, 57, 68, 81, 100, and 150 to meet diverse hydraulic system requirements.",
+        systemCompatibility: "Compatible with seals normally used in hydraulic systems and suitable for high-pressure, high-speed applications."
+      },
+      performanceStandards: [
+        {
+          icon: "IS",
+          title: "Indian Standards",
+          value: "IS: 10522:1983 (Reaffirmed 1998)"
+        },
+        {
+          icon: "ANTI_WEAR",
+          title: "Anti-Wear Protection",
+          value: "Advanced AW Additive Package"
+        },
+        {
+          icon: "PRESSURE",
+          title: "High Pressure",
+          value: "Extreme Pressure Capability"
+        },
+        {
+          icon: "GRADES",
+          title: "Viscosity Grades",
+          value: "32, 46, 57, 68, 81, 100, 150"
+        }
+      ],
+      packaging: ["210 L", "26 L", "20 L", "5 L", "1 L"],
+      customPackaging: {
+        title: "Custom Packaging",
+        description: "We offer custom packaging solutions for bulk orders and specific industrial requirements.",
+        linkText: "Contact for custom sizes →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity @ 40°C, cSt",
+          grade32: "30-34",
+          grade46: "46-48",
+          grade57: "54-60",
+          grade68: "66-70",
+          grade81: "78-84",
+          grade100: "95-105",
+          grade150: "145-155"
+        },
+        {
+          characteristic: "Viscosity Index, Min.",
+          grade32: "95",
+          grade46: "95",
+          grade57: "95",
+          grade68: "95",
+          grade81: "95",
+          grade100: "95",
+          grade150: "95"
+        },
+        {
+          characteristic: "Flash Point (COC), °C, Min.",
+          grade32: "190",
+          grade46: "210",
+          grade57: "210",
+          grade68: "210",
+          grade81: "210",
+          grade100: "220",
+          grade150: "220"
+        },
+        {
+          characteristic: "Pour Point, °C, Max.",
+          grade32: "-6",
+          grade46: "-6",
+          grade57: "-6",
+          grade68: "-6",
+          grade81: "-6",
+          grade100: "-6",
+          grade150: "-6"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/2.Industry Oils/Hydraulic Oils Anti Wear Type/MSDS.pdf",
+        pds: "/pdfs/2.Industry Oils/Hydraulic Oils Anti Wear Type/PDS.pdf",
+        brochure: "/pdfs/2.Industry Oils/Hydraulic Oils Anti Wear Type/BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/2.Industry Oils/Hydraulic Oils Anti Wear Type/Video.mp4",
+        poster: "/hydraulic-oil-aw-hero.jpg"
+      }
+    },
+    "hydraulic-oils-hlp": {
+      name: "Hydraulic Oil HLP (Grades 32, 46, 68, 100, 150)",
+      brand: "EASTTO",
+      shortDescription: "High-performance hydraulic oils for demanding industrial applications",
+      heroImage: "/hydraulic-oil-hlp-hero.jpg",
+      fallbackImage: "/products/industrial.jpg", // Category-specific fallback
+      introduction: "HYDRAULIC OILS HLP are blended from highly refined base stocks with high viscosity index and specially selected anti-oxidant, anticorrosion, anti-wear, anti-rust and anti-foam additives. These oils can sustain very high pressure of the system and high speed of the pumps, and compatible with the seals normally used in the hydraulic system.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "High-Pressure Hydraulic Systems",
+          description: "Engineered to sustain very high pressure systems while maintaining optimal performance and providing superior protection against wear and corrosion."
+        },
+        {
+          title: "High-Speed Pump Operations",
+          description: "Specially formulated for high-speed pump applications, offering excellent lubrication properties and compatibility with standard hydraulic seals."
+        },
+        {
+          title: "Industrial Hydraulic & Circulation Systems",
+          description: "Recommended for long service life applications in a wide variety of industrial hydraulic and circulation systems requiring reliable performance."
+        }
+      ],
+      specifications: {
+        baseStock: "Blended from highly refined base stocks with high viscosity index for superior performance.",
+        additivePackage: "Specially selected anti-oxidant, anticorrosion, anti-wear, anti-rust and anti-foam additives.",
+        viscosityGrades: "Available in grades 32, 46, 68, 100, and 150 to meet diverse hydraulic system requirements.",
+        systemCompatibility: "Compatible with seals normally used in hydraulic systems and suitable for high-pressure, high-speed applications."
+      },
+      performanceStandards: [
+        {
+          icon: "HLP",
+          title: "HLP Standard",
+          value: "High Performance Grade"
+        },
+        {
+          icon: "ANTI_WEAR",
+          title: "Anti-Wear Protection",
+          value: "Advanced Additive Package"
+        },
+        {
+          icon: "PRESSURE",
+          title: "High Pressure",
+          value: "Extreme Pressure Capability"
+        },
+        {
+          icon: "GRADES",
+          title: "Viscosity Grades",
+          value: "32, 46, 68, 100, 150"
+        }
+      ],
+      packaging: ["210 L", "26 L", "20 L"],
+      customPackaging: {
+        title: "Custom Packaging",
+        description: "We offer custom packaging solutions for bulk orders and specific industrial requirements.",
+        linkText: "Contact for custom sizes →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity @ 40°C, cSt",
+          grade32: "30-34",
+          grade46: "44-48",
+          grade68: "66-70",
+          grade100: "95-105",
+          grade150: "145-155"
+        },
+        {
+          characteristic: "Viscosity Index, Min.",
+          grade32: "95",
+          grade46: "95",
+          grade68: "95",
+          grade100: "95",
+          grade150: "95"
+        },
+        {
+          characteristic: "Flash Point (COC), °C, Min.",
+          grade32: "190",
+          grade46: "210",
+          grade68: "210",
+          grade100: "220",
+          grade150: "220"
+        },
+        {
+          characteristic: "Pour Point, °C, Max.",
+          grade32: "-6",
+          grade46: "-6",
+          grade68: "-6",
+          grade100: "-6",
+          grade150: "-6"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/2.Industry Oils/Hydraulic Oils HLP/MSDS.pdf",
+        pds: "/pdfs/2.Industry Oils/Hydraulic Oils HLP/PDS.pdf",
+        brochure: "/pdfs/2.Industry Oils/Hydraulic Oils HLP/BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/2.Industry Oils/Hydraulic Oils HLP/Video.mp4",
+        poster: "/hydraulic-oil-hlp-hero.jpg"
+      }
+    },
+    "hydraulic-oils-hvi": {
+      name: "Hydraulic Oil HVI (Grades 32, 46, 68, 100)",
+      brand: "EASTTO",
+      shortDescription: "Premium grade high viscosity index hydraulic oils for excavators and industrial applications",
+      heroImage: "/hydraulic-oil-hvi-hero.jpg",
+      fallbackImage: "/products/industrial.jpg", // Category-specific fallback
+      introduction: "EASTTO HYDRAULIC OILS HVI – 32, 46, 68 & 100 – are premium grade high viscosity index hydraulic oils which have excellent shear stability and can withstand wide range of temperatures. These oils contain special additive package that reduces wear, rust, oxidation, etc, and imparts good hydrolytic stability and water separation characteristics. Good anti-foam and air release properties ensure smooth operation and system efficiency. They have excellent compatibility with seals normally used in hydraulic system.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Hydraulic Excavators",
+          description: "Mainly recommended for hydraulic excavators of Tata–Hitachi, L & T, Komatsu, etc., providing excellent performance under demanding operating conditions."
+        },
+        {
+          title: "Industrial Hydraulic Applications",
+          description: "Suitable for various industrial applications requiring premium hydraulic fluid performance with excellent shear stability and temperature resistance."
+        },
+        {
+          title: "Wide Temperature Range Operations",
+          description: "Engineered to withstand wide range of temperatures while maintaining optimal viscosity characteristics and system efficiency."
+        }
+      ],
+      specifications: {
+        performance: "Premium grade high viscosity index hydraulic oils with excellent shear stability.",
+        additivePackage: "Special additive package that reduces wear, rust, oxidation and imparts good hydrolytic stability.",
+        temperatureRange: "Can withstand wide range of temperatures while maintaining performance.",
+        systemCompatibility: "Excellent compatibility with seals normally used in hydraulic systems."
+      },
+      performanceStandards: [
         {
           icon: "DIN",
           title: "DIN Standards",
-          value: "DIN 51524 Part 1"
+          value: "DIN 51524 Part 3"
+        },
+        {
+          icon: "HVI",
+          title: "High Viscosity Index",
+          value: "Premium Grade"
+        },
+        {
+          icon: "SHEAR",
+          title: "Shear Stability",
+          value: "Excellent Performance"
+        },
+        {
+          icon: "GRADES",
+          title: "Viscosity Grades",
+          value: "32, 46, 68, 100"
         }
       ],
-      packaging: ["208 L", "50 L", "20 L", "10 L", "5 L"],
+      packaging: ["210 L", "26 L", "20 L"],
       customPackaging: {
-        title: "Bulk Supply Available",
-        description: "We provide bulk supply options for large industrial operations.",
-        linkText: "Inquire about bulk pricing →"
+        title: "Custom Packaging",
+        description: "We offer custom packaging solutions for bulk orders and specific industrial requirements.",
+        linkText: "Contact for custom sizes →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity @ 40°C, cSt",
+          grade32: "30-34",
+          grade46: "46-48",
+          grade68: "66-70",
+          grade100: "95-105"
+        },
+        {
+          characteristic: "Viscosity Index, Min.",
+          grade32: "95",
+          grade46: "95",
+          grade68: "95",
+          grade100: "95"
+        },
+        {
+          characteristic: "Flash Point (COC), °C, Min.",
+          grade32: "190",
+          grade46: "210",
+          grade68: "210",
+          grade100: "220"
+        },
+        {
+          characteristic: "Pour Point, °C, Max.",
+          grade32: "-6",
+          grade46: "-6",
+          grade68: "-6",
+          grade100: "-6"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/2.Industry Oils/Hydraulic Oils HVI/MSDS.pdf",
+        pds: "/pdfs/2.Industry Oils/Hydraulic Oils HVI/PDS.pdf",
+        brochure: "/pdfs/2.Industry Oils/Hydraulic Oils HVI/BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/2.Industry Oils/Hydraulic Oils HVI/Video.mp4",
+        poster: "/hydraulic-oil-hvi-hero.jpg"
+      }
+    },
+    "refrigeration-oils": {
+      name: "Refrigeration Oil (Grades 12, 22, 32, 46, 68, 100)",
+      brand: "EASTTO",
+      shortDescription: "High fluidity refrigeration oils for compressors operating at very low temperatures",
+      heroImage: "/refrigeration-oil-hero.jpg",
+      fallbackImage: "/products/industrial.jpg", // Category-specific fallback
+      introduction: "EASTTO Refrigeration Oils – 12, 22, 32, 46, 68 & 100 – possess very high fluidity at very low temperatures (low pour point) with low flock point, resist deposit formation; have good chemical stability with minimum tendency to foam. They also have good oxidation and thermal stability.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Open Refrigeration Compressors",
+          description: "Recommended for lubrication of open type refrigeration compressors, providing excellent low-temperature fluidity and chemical stability."
+        },
+        {
+          title: "Hermetically Sealed Compressors",
+          description: "Ideal for hermetically sealed reciprocating and rotary compressors, offering superior oxidation resistance and minimal foaming tendency."
+        },
+        {
+          title: "Semi-Sealed Compressors",
+          description: "Suitable for semi-sealed compressor applications using conventional refrigerants (except SO2) at moderate thermal load conditions."
+        }
+      ],
+      specifications: {
+        temperaturePerformance: "Very high fluidity at very low temperatures with low pour point and low flock point.",
+        chemicalStability: "Good chemical stability with minimum tendency to foam and resist deposit formation.",
+        thermalStability: "Good oxidation and thermal stability for reliable long-term performance.",
+        refrigerantCompatibility: "Compatible with conventional type refrigerants (except SO2) at moderate thermal load."
+      },
+      performanceStandards: [
+        {
+          icon: "TEMPERATURE",
+          title: "Low Temperature",
+          value: "Very High Fluidity"
+        },
+        {
+          icon: "STABILITY",
+          title: "Chemical Stability",
+          value: "Excellent Performance"
+        },
+        {
+          icon: "REFRIGERANT",
+          title: "Refrigerant Compatible",
+          value: "Conventional Types"
+        },
+        {
+          icon: "GRADES",
+          title: "Viscosity Grades",
+          value: "12, 22, 32, 46, 68, 100"
+        }
+      ],
+      packaging: ["210 L", "26 L", "20 L"],
+      customPackaging: {
+        title: "Custom Packaging",
+        description: "We offer custom packaging solutions for bulk orders and specific industrial requirements.",
+        linkText: "Contact for custom sizes →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity @ 40°C, cSt",
+          grade12: "12-14",
+          grade22: "20-24",
+          grade32: "30-34",
+          grade46: "44-48",
+          grade68: "66-70",
+          grade100: "95-105"
+        },
+        {
+          characteristic: "Flash Point (COC), °C, Min.",
+          grade12: "140",
+          grade22: "140",
+          grade32: "150",
+          grade46: "160",
+          grade68: "170",
+          grade100: "200"
+        },
+        {
+          characteristic: "Pour Point, °C, Max.",
+          grade12: "-39",
+          grade22: "-39",
+          grade32: "-30",
+          grade46: "-27",
+          grade68: "-24",
+          grade100: "-24"
+        },
+        {
+          characteristic: "Viscosity Index, Min.",
+          grade12: "55",
+          grade22: "55",
+          grade32: "55",
+          grade46: "55",
+          grade68: "55",
+          grade100: "60"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/2.Industry Oils/Refrigeration Oils/MSDS.pdf",
+        pds: "/pdfs/2.Industry Oils/Refrigeration Oils/PDS.pdf",
+        brochure: "/pdfs/2.Industry Oils/Refrigeration Oils/BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/2.Industry Oils/Refrigeration Oils/Video.mp4",
+        poster: "/refrigeration-oil-hero.jpg"
+      }
+    },
+    "compressor-oil": {
+      name: "Compressor Oil (32, 46, 68, 100, 150, 220 & 320)",
+      brand: "EASTTO",
+      shortDescription: "High-performance compressor oils for reciprocating and rotary air compressors",
+      heroImage: "/compressor-oil-hero.jpg",
+      fallbackImage: "/products/industrial.jpg", // Category-specific fallback
+      introduction: "Compressor Oils – 32, 46, 68, 100, 150, 220 & 320 are blended from highly refined based stocks with antioxidant and rust inhibitor. They provide excellent lubrication under high temperature and high load conditions.",
+      sectionTitles: {
+        overview: "Product Overview",
+        applications: "Applications",
+        performanceStandards: "Performance Standards",
+        technicalSpecs: "Technical Specifications",
+        packaging: "Packaging Options",
+        resources: "Product Resources"
+      },
+      applications: [
+        {
+          title: "Reciprocating Compressors",
+          description: "Recommended for cylinder lubrication of reciprocating compressors operating up to 220°C air discharge temperature."
+        },
+        {
+          title: "Rotary Air Compressors",
+          description: "Ideal for rotary air compressor applications with high temperature and high load operating conditions."
+        }
+      ],
+      specifications: {
+        apiService: "Meet requirements of cylinder lubricants in reciprocating and rotary air compressors.",
+        industryStandards: "Formulated to provide excellent lubrication under high temperature and high load conditions.",
+        oemRequirements: "Suitable for compressors operating up to 220°C air discharge temperature.",
+        viscosityGrades: "Available in ISO VG 32, 46, 68, 100, 150, 220 & 320 to suit varied compressor designs and operating conditions."
+      },
+      performanceStandards: [
+        {
+          icon: "TEMP",
+          title: "Operating Temperature",
+          value: "Up to 220°C"
+        },
+        {
+          icon: "COMP",
+          title: "Compressor Type",
+          value: "Reciprocating & Rotary"
+        },
+        {
+          icon: "ISO",
+          title: "Viscosity Grades",
+          value: "32, 46, 68, 100, 150, 220, 320"
+        },
+        {
+          icon: "PERF",
+          title: "Performance Level",
+          value: "High Temperature & Load"
+        }
+      ],
+      packaging: ["210 L", "26 L", "20 L"],
+      customPackaging: {
+        title: "Custom Packaging",
+        description: "We offer custom packaging solutions for bulk orders and specific requirements.",
+        linkText: "Contact for custom sizes →"
+      },
+      technicalData: [
+        {
+          characteristic: "Kinematic Viscosity at 40°C, cSt",
+          iso32: "30 to 34",
+          iso46: "44 to 48",
+          iso68: "66 to 70",
+          iso100: "95 to 105",
+          iso150: "145 to 155",
+          iso220: "210 to 230",
+          iso320: "310 to 330"
+        },
+        {
+          characteristic: "Viscosity Index, Min.",
+          iso32: "95",
+          iso46: "95",
+          iso68: "95",
+          iso100: "95",
+          iso150: "95",
+          iso220: "95",
+          iso320: "95"
+        },
+        {
+          characteristic: "Flash Point, COC, °C, Min.",
+          iso32: "190",
+          iso46: "190",
+          iso68: "200",
+          iso100: "200",
+          iso150: "210",
+          iso220: "220",
+          iso320: "220"
+        },
+        {
+          characteristic: "Pour Point, °C Max.",
+          iso32: "(-) 6",
+          iso46: "(-) 6",
+          iso68: "(-) 6",
+          iso100: "(-) 6",
+          iso150: "(-) 6",
+          iso220: "(-) 6",
+          iso320: "(-) 6"
+        }
+      ],
+      pdfs: {
+        msds: "/pdfs/2.Industry Oils/Compressor Oil/MSDS.pdf",
+        pds: "/pdfs/2.Industry Oils/Compressor Oil/PDS.pdf",
+        brochure: "/pdfs/2.Industry Oils/Compressor Oil/BROCHURE.pdf"
+      },
+      video: {
+        src: "/pdfs/2.Industry Oils/Compressor Oil/Video.mp4",
+        poster: "/compressor-oil-hero.jpg"
       }
     }
   }
